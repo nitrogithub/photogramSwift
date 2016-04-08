@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		712D79F21CB76EEF002D03C7 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D79EC1CB76EEF002D03C7 /* Comment.swift */; };
+		712D79F31CB76EEF002D03C7 /* Comment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D79ED1CB76EEF002D03C7 /* Comment+CoreDataProperties.swift */; };
+		712D79F41CB76EEF002D03C7 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D79EE1CB76EEF002D03C7 /* Image.swift */; };
+		712D79F51CB76EEF002D03C7 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D79EF1CB76EEF002D03C7 /* Image+CoreDataProperties.swift */; };
+		712D79F61CB76EEF002D03C7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D79F01CB76EEF002D03C7 /* User.swift */; };
+		712D79F71CB76EEF002D03C7 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712D79F11CB76EEF002D03C7 /* User+CoreDataProperties.swift */; };
 		7C2E87811CB7032F0056FF31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E87801CB7032F0056FF31 /* AppDelegate.swift */; };
 		7C2E87861CB7032F0056FF31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E87841CB7032F0056FF31 /* Main.storyboard */; };
 		7C2E87891CB7032F0056FF31 /* PhotogramSwift.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E87871CB7032F0056FF31 /* PhotogramSwift.xcdatamodeld */; };
@@ -20,6 +26,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		712D79EC1CB76EEF002D03C7 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		712D79ED1CB76EEF002D03C7 /* Comment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Comment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		712D79EE1CB76EEF002D03C7 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		712D79EF1CB76EEF002D03C7 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		712D79F01CB76EEF002D03C7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		712D79F11CB76EEF002D03C7 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7C2E877D1CB7032F0056FF31 /* PhotogramSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotogramSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C2E87801CB7032F0056FF31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7C2E87851CB7032F0056FF31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +57,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		712D79EB1CB76E57002D03C7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				712D79EC1CB76EEF002D03C7 /* Comment.swift */,
+				712D79ED1CB76EEF002D03C7 /* Comment+CoreDataProperties.swift */,
+				712D79EE1CB76EEF002D03C7 /* Image.swift */,
+				712D79EF1CB76EEF002D03C7 /* Image+CoreDataProperties.swift */,
+				712D79F01CB76EEF002D03C7 /* User.swift */,
+				712D79F11CB76EEF002D03C7 /* User+CoreDataProperties.swift */,
+				7C2E87871CB7032F0056FF31 /* PhotogramSwift.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		7C2E87741CB7032F0056FF31 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +90,7 @@
 		7C2E877F1CB7032F0056FF31 /* PhotogramSwift */ = {
 			isa = PBXGroup;
 			children = (
+				712D79EB1CB76E57002D03C7 /* Model */,
 				7C2E879B1CB7100E0056FF31 /* KevinFiles */,
 				7C2E879A1CB710040056FF31 /* AtousaFiles */,
 				7C2E87991CB70FFB0056FF31 /* DavidFiles */,
@@ -71,7 +98,6 @@
 				7C2E878A1CB7032F0056FF31 /* Assets.xcassets */,
 				7C2E878C1CB7032F0056FF31 /* LaunchScreen.storyboard */,
 				7C2E878F1CB7032F0056FF31 /* Info.plist */,
-				7C2E87871CB7032F0056FF31 /* PhotogramSwift.xcdatamodeld */,
 			);
 			path = PhotogramSwift;
 			sourceTree = "<group>";
@@ -177,11 +203,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				712D79F51CB76EEF002D03C7 /* Image+CoreDataProperties.swift in Sources */,
 				7C2E87961CB70B620056FF31 /* MainFeedVC.swift in Sources */,
+				712D79F41CB76EEF002D03C7 /* Image.swift in Sources */,
+				712D79F21CB76EEF002D03C7 /* Comment.swift in Sources */,
 				7C2E87811CB7032F0056FF31 /* AppDelegate.swift in Sources */,
 				7C2E87A01CB718BA0056FF31 /* TestObject.swift in Sources */,
 				7C2E87891CB7032F0056FF31 /* PhotogramSwift.xcdatamodeld in Sources */,
+				712D79F71CB76EEF002D03C7 /* User+CoreDataProperties.swift in Sources */,
 				7C2E87A21CB71AB40056FF31 /* FeedTableViewCell.swift in Sources */,
+				712D79F61CB76EEF002D03C7 /* User.swift in Sources */,
+				712D79F31CB76EEF002D03C7 /* Comment+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +371,7 @@
 				7C2E87941CB7032F0056FF31 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

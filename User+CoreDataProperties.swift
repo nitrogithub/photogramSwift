@@ -1,8 +1,8 @@
 //
-//  Comment+CoreDataProperties.swift
+//  User+CoreDataProperties.swift
 //  PhotogramSwift
 //
-//  Created by Atousa Duprat on 4/7/16.
+//  Created by Atousa Duprat on 4/11/16.
 //  Copyright © 2016 Kevin Kim. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,10 +12,12 @@
 import Foundation
 import CoreData
 
-extension Comment {
+extension User {
 
-    @NSManaged var comment: String?
-    @NSManaged var image: Image?
-    @NSManaged var user: User?
+    @NSManaged var gender: String?
+    @NSManaged var profileName: String?
+    @NSManaged var realName: String?
+    @NSManaged var comments: NSSet?
+    @NSManaged var image: NSSet?
 
 }

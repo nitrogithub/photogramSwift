@@ -2,7 +2,7 @@
 //  Image.swift
 //  PhotogramSwift
 //
-//  Created by Atousa Duprat on 4/7/16.
+//  Created by Atousa Duprat on 4/11/16.
 //  Copyright © 2016 Kevin Kim. All rights reserved.
 //
 

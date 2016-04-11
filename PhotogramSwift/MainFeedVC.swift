@@ -37,7 +37,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //        let cell2 = tableView.dequeueReusableCellWithIdentifier("imageCell", forIndexPath: indexPath)
 //        let cell3 = tableView.dequeueReusableCellWithIdentifier("likeCell", forIndexPath: indexPath)
 //        let cell4 = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
-        cell.userName.text = testArray[indexPath.row].name
+//        cell.userName.text = testArray[indexPath.row].name
         return cell
     }
 

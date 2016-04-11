@@ -14,6 +14,8 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var testObject2 = TestObject()
     var testObject3 = TestObject()
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var homeButton: UIBarButtonItem!
+    @IBOutlet weak var profileButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         testObject3.image = "yosemite"
         testObject3.comments = ["hmmmmm...", "way to go","lolol"]
         testArray = [testObject1, testObject2, testObject3]
+        
     }
 
     
@@ -37,7 +40,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //        let cell2 = tableView.dequeueReusableCellWithIdentifier("imageCell", forIndexPath: indexPath)
 //        let cell3 = tableView.dequeueReusableCellWithIdentifier("likeCell", forIndexPath: indexPath)
 //        let cell4 = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
-        cell.userName.text = testArray[indexPath.row].name
+//        cell.userName.text = testArray[indexPath.row].name
         return cell
     }
 

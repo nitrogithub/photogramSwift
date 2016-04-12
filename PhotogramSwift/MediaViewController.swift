@@ -26,7 +26,14 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
         nextButton.layer.cornerRadius = 0.05 * nextButton.bounds.size.width
+        
+        // Navigation Bar UI
+        navigationController!.navigationBar.barTintColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.tintColor = UIColor.grayColor()
+
     }
+    
     
     
     // View WILL load

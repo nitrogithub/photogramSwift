@@ -14,11 +14,12 @@ import MobileCoreServices
 
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
-    @IBOutlet weak var editButton: UIButton!
+    //@IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userGender: UISegmentedControl!
-    @IBOutlet weak var saveButton: UIButton!
+
     
     //Variables
     var newMedia: Bool?
@@ -33,35 +34,61 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         // UI stuff
         self.view.backgroundColor = UIColor.blackColor()
-        profileImage.layer.cornerRadius = 0.1 * profileImage.bounds.size.width
-        saveButton.backgroundColor = UIColor.grayColor()
-        saveButton.layer.cornerRadius = 0.05 * saveButton.bounds.size.width
+        
+        //Profile Image/rounded corners w/ frame
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2;
+        profileImage.clipsToBounds = true
+        profileImage.layer.borderWidth = 3.0
+        profileImage.layer.borderColor = UIColor.whiteColor().CGColor
+        profileImage.layer.cornerRadius = 10.0
         
         // UX enable/disable buttons
-        saveButton.hidden = true
         profileImage.userInteractionEnabled = false
         userName.userInteractionEnabled = false
         userGender.userInteractionEnabled = false
+        
+        //self.userName.delegate = self
+        userName.resignFirstResponder()
+
         
         // CoreData
         
     }
     
     
+    func textFieldShouldReturn(userText: UITextField!) -> Bool {
+        userName.resignFirstResponder()
+        return true;
+    }
+    
     
     
     @IBAction func onEditProfileButtonPressed(sender: AnyObject)
     {
         
-        // UX enable/disable buttons
-        saveButton.hidden = false
-        profileImage.userInteractionEnabled = true
-        userName.userInteractionEnabled = true
-        userGender.userInteractionEnabled = true
+        if (self.navigationItem.rightBarButtonItem!.title == "Edit") {
+            self.navigationItem.rightBarButtonItem!.title = "Done"
+            
+            // UX enable/disable buttons
+            profileImage.userInteractionEnabled = true
+            userName.userInteractionEnabled = true
+            userGender.userInteractionEnabled = true
+            
+            //Assign tap gesture to profile Image
+            let tap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.imageTapped(_:)))
+            profileImage.addGestureRecognizer(tap)
+            
+        }else {
+            self.navigationItem.rightBarButtonItem!.title = "Edit"
+            profileImage.userInteractionEnabled = false
+            userName.userInteractionEnabled = false
+            userGender.userInteractionEnabled = false
+            
         
-        //Assign tap gesture to profile Image
-        let tap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.imageTapped(_:)))
-        profileImage.addGestureRecognizer(tap)
+        }
+        
+        
+        
     }
     
     
@@ -138,6 +165,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
             profileImage.image = image
             
+            
             if (newMedia == true)
             {
                 UIImageWriteToSavedPhotosAlbum(image, self, #selector(MediaViewController.image(_:didFinishSavingWithError:contextInfo:)), nil)
@@ -190,6 +218,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
+
+    
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
@@ -197,14 +227,20 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
     }
     
-    @IBAction func onSaveButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("GoToFeedVC", sender: self)
-        
-        let storyBoard : UIStoryboard = UIStoryboard(name: "MainFeedVC", bundle:nil)
-        
-        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("MainFeedVC") as! MainFeedVC
-        self.presentViewController(nextViewController, animated:true, completion:nil)
-        
-    }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

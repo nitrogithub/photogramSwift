@@ -11,8 +11,10 @@ import UIKit
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var userName: UILabel!
-    @IBOutlet weak var mainImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var timeUploadedLabel: UILabel!
+    @IBOutlet weak var mainImageView: UIImageView!
+    @IBOutlet weak var commentsTextView: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -67,4 +69,14 @@ class FeedTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    @IBAction func likeButtonPressed(sender: UIButton) {
+//        self.delegate.performSegue("commentSegue")
+//        self.performSegueWithIdentifier("commentSegue", sender: nil)
+        let descVC = MainFeedVC()
+        descVC.commentSeguePlease()
+
+    }
+    @IBAction func commentButtonPressed(sender: UIButton) {
+    }
+    
 }

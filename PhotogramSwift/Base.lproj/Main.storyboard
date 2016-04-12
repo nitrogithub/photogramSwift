@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -216,7 +216,6 @@
         <!--CommentVC-->
         <scene sceneID="d9G-eE-UkB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uJv-UE-DJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RXG-Rn-Ola" customClass="CommentVC" customModule="PhotogramSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N18-v6-xge"/>
@@ -276,6 +275,7 @@
                         <outlet property="spacerBottomConstraint" destination="CJg-NO-Gpc" id="0O9-4F-AJV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uJv-UE-DJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1782" y="1035"/>
         </scene>

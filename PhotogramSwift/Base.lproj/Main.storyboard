@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="395"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SlR-wi-wpj" id="gtx-Xg-Qtw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="395"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="394.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RE8-yM-0se">
@@ -67,7 +67,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="wjc-fU-Gvp"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yosemite" translatesAutoresizingMaskIntoConstraints="NO" id="59G-AS-CwS">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareImage1" translatesAutoresizingMaskIntoConstraints="NO" id="59G-AS-CwS">
                                                     <rect key="frame" x="0.0" y="58" width="320" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="59G-AS-CwS" secondAttribute="height" multiplier="8:5" id="hI9-yE-6K9"/>
@@ -206,7 +206,7 @@
                         <outlet property="homeButton" destination="1Yz-gH-se3" id="EKu-sQ-9kh"/>
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
-                        <segue destination="RXG-Rn-Ola" kind="push" identifier="commentSegue" id="iiu-6R-dlG"/>
+                        <segue destination="RXG-Rn-Ola" kind="push" identifier="segue1" id="iiu-6R-dlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -296,7 +296,7 @@
         <image name="chatIcon" width="128" height="101"/>
         <image name="heartWhite" width="128" height="128"/>
         <image name="home" width="30" height="30"/>
+        <image name="squareImage1" width="225" height="225"/>
         <image name="userProfile" width="30" height="30"/>
-        <image name="yosemite" width="288" height="216"/>
     </resources>
 </document>

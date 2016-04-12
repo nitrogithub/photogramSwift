@@ -1,58 +1,88 @@
 //
-//  MediaViewController.swift
+//  EditProfileViewController.swift
 //  PhotogramSwift
 //
-//  Created by David Iskander on 4/10/16.
+//  Created by David Iskander on 4/11/16.
 //  Copyright © 2016 Kevin Kim. All rights reserved.
 //
 
 import UIKit
 import Photos
+import CoreData
 import MobileCoreServices
 
-class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    //Outlets
-    @IBOutlet weak var mediaBar: UISegmentedControl!
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nextButton: UIButton!
+
+class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var userName: UITextField!
+    @IBOutlet weak var userGender: UISegmentedControl!
+    @IBOutlet weak var saveButton: UIButton!
     
     //Variables
     var newMedia: Bool?
+    var genderType: String = ""
     
     
-    // View DID load
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = UIColor.blackColor()
-        nextButton.layer.cornerRadius = 0.05 * nextButton.bounds.size.width
-    }
     
     
-    // View WILL load
-    override func viewWillAppear(animated: Bool)
+    override func viewDidLoad()
     {
-        super.viewWillAppear(animated)
-        mediaBar.selectedSegmentIndex = -1
+        super.viewDidLoad()
+        
+        // UI stuff
+        self.view.backgroundColor = UIColor.blackColor()
+        profileImage.layer.cornerRadius = 0.1 * profileImage.bounds.size.width
+        saveButton.backgroundColor = UIColor.grayColor()
+        saveButton.layer.cornerRadius = 0.05 * saveButton.bounds.size.width
+        
+        // UX enable/disable buttons
+        saveButton.hidden = true
+        profileImage.userInteractionEnabled = false
+        userName.userInteractionEnabled = false
+        userGender.userInteractionEnabled = false
+        
+        // CoreData
+        
     }
     
     
     
-    // the switch between camera and library
-    @IBAction func photoTypeSelector(sender: UISegmentedControl){
-        switch mediaBar.selectedSegmentIndex
-        {
-        case 0:
-            useCamera()
-            
-            
-        case 1:
-            useCameraRoll()
-            
-            
-        default:
-            break;
-        }
+    
+    @IBAction func onEditProfileButtonPressed(sender: AnyObject)
+    {
+        
+        // UX enable/disable buttons
+        saveButton.hidden = false
+        profileImage.userInteractionEnabled = true
+        userName.userInteractionEnabled = true
+        userGender.userInteractionEnabled = true
+        
+        //Assign tap gesture to profile Image
+        let tap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.imageTapped(_:)))
+        profileImage.addGestureRecognizer(tap)
+    }
+    
+    
+    
+    func imageTapped(img: AnyObject)
+    {
+        let alertController = UIAlertController(title: "Change Profile picture", message: "select one", preferredStyle: .ActionSheet)
+        
+        
+        alertController.addAction(UIAlertAction(title: "Choose from Library", style: UIAlertActionStyle.Default, handler: { (action) in
+            self.useCameraRoll()
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Take Photo", style: UIAlertActionStyle.Default, handler: { (action) in
+            self.useCamera()
+            }))
+
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .Default, handler: nil))
+        
+        presentViewController(alertController, animated: true, completion: nil)
+        
     }
     
     
@@ -106,7 +136,7 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
         {
             let image = info[UIImagePickerControllerOriginalImage] as! UIImage
             
-            imageView.image = image
+            profileImage.image = image
             
             if (newMedia == true)
             {
@@ -144,16 +174,37 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
-    // Segue - passing image to sharing screen
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let dVC = segue.destinationViewController as! ShareViewController
-        dVC.imageToShare = imageView
-    }
-    
-    
-    // Perform Segue on NEXT button pressed
-    @IBAction func onNextButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("GoToShareScreenVC", sender: self)
+    // Gender Selection
+    @IBAction func genderSelection(sender: AnyObject) {
+        switch userGender.selectedSegmentIndex
+        {
+        case 0:
+            genderType = "Male"
+            
+        case 1:
+            genderType = "Female"
+            
+        default:
+            break;
+        }
         
     }
+    
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        
+    }
+    
+    @IBAction func onSaveButtonPressed(sender: AnyObject) {
+        performSegueWithIdentifier("GoToFeedVC", sender: self)
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "MainFeedVC", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewControllerWithIdentifier("MainFeedVC") as! MainFeedVC
+        self.presentViewController(nextViewController, animated:true, completion:nil)
+        
+    }
+    
 }

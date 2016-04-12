@@ -8,19 +8,22 @@
 
 
 //For Kevin: This object receives an image, annotates the image with a name and geotech info. and pass it to other object for further processing. It is augmented by a function named "didSharedImage". If you want to use this function you need to include the "ShareViewControllerDelegate" protocol in your object.
+
 import UIKit
 import Photos
 import MapKit
+import CoreData
 
 //delegate protocol
 protocol ShareViewControllerDelegate: class {
-   func didSharedImage(sender: Image)
+   func didSharedImage()
 }
 
 class ShareViewController: UIViewController {
     //Image that passed from other VC
     let recievedImage = UIImage()
-    let shareImage = Image()
+    let user = User()
+    
     
     
     //set up the delegate property
@@ -34,9 +37,15 @@ class ShareViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        let moc = appDelegate?.managedObjectContext
+
+        let shareImage = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: moc!) as! Image
         
         shareImage.name = self.nameOfImage.text
         shareImage.image = UIImagePNGRepresentation(recievedImage)
+        shareImage.user = user
+        
         
         //taking the geotech from the received image
         let assetResult = PHAsset.fetchAssetsWithMediaType(.Image,
@@ -69,8 +78,7 @@ class ShareViewController: UIViewController {
     
 
     @IBAction func onPressedShareButton(sender: AnyObject) {
-        
-        delegate?.didSharedImage(shareImage)
+        delegate?.didSharedImage()
     }
     
     

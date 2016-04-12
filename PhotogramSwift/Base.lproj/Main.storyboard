@@ -216,7 +216,6 @@
         <!--CommentVC-->
         <scene sceneID="d9G-eE-UkB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uJv-UE-DJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="RXG-Rn-Ola" customClass="CommentVC" customModule="PhotogramSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="N18-v6-xge"/>
@@ -276,6 +275,7 @@
                         <outlet property="spacerBottomConstraint" destination="CJg-NO-Gpc" id="0O9-4F-AJV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uJv-UE-DJx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1782" y="1035"/>
         </scene>

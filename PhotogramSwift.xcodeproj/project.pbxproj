@@ -18,6 +18,7 @@
 		719E9EE71CBD5EA000533175 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719E9EE11CBD5EA000533175 /* Image.swift */; };
 		719E9EE81CBD5EA000533175 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719E9EE21CBD5EA000533175 /* User+CoreDataProperties.swift */; };
 		719E9EE91CBD5EA000533175 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719E9EE31CBD5EA000533175 /* User.swift */; };
+		71ECAD4C1CBDA8B90035E96A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71ECAD4B1CBDA8B90035E96A /* CoreData.framework */; };
 		7C2BB9D21CBC42EF00E21E94 /* CommentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2BB9D11CBC42EF00E21E94 /* CommentVC.swift */; };
 		7C2E87811CB7032F0056FF31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C2E87801CB7032F0056FF31 /* AppDelegate.swift */; };
 		7C2E87861CB7032F0056FF31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C2E87841CB7032F0056FF31 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		719E9EE11CBD5EA000533175 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = ../Image.swift; sourceTree = "<group>"; };
 		719E9EE21CBD5EA000533175 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "User+CoreDataProperties.swift"; path = "../User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		719E9EE31CBD5EA000533175 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = ../User.swift; sourceTree = "<group>"; };
+		71ECAD4B1CBDA8B90035E96A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		7C2BB9D11CBC42EF00E21E94 /* CommentVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentVC.swift; sourceTree = "<group>"; };
 		7C2E877D1CB7032F0056FF31 /* PhotogramSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotogramSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7C2E87801CB7032F0056FF31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71ECAD4C1CBDA8B90035E96A /* CoreData.framework in Frameworks */,
 				719E9ED71CBD5D3700533175 /* Photos.framework in Frameworks */,
 				719E9ED51CBD5D2F00533175 /* MapKit.framework in Frameworks */,
 			);
@@ -88,6 +91,7 @@
 		7C2E87741CB7032F0056FF31 = {
 			isa = PBXGroup;
 			children = (
+				71ECAD4B1CBDA8B90035E96A /* CoreData.framework */,
 				719E9ED61CBD5D3700533175 /* Photos.framework */,
 				719E9ED41CBD5D2F00533175 /* MapKit.framework */,
 				7C2E877F1CB7032F0056FF31 /* PhotogramSwift */,

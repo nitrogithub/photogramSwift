@@ -77,6 +77,8 @@ class FeedTableViewCell: UITableViewCell {
 
     }
     @IBAction func commentButtonPressed(sender: UIButton) {
+        let descVC = MainFeedVC()
+        descVC.commentSeguePlease()
     }
     
 }

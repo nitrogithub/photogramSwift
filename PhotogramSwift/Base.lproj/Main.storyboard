@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -53,6 +53,7 @@
                                                             <state key="normal" title="Button" image="chatIcon"/>
                                                             <connections>
                                                                 <action selector="commentButtonPressed:" destination="SlR-wi-wpj" eventType="touchUpInside" id="6e3-ch-nVV"/>
+                                                                <segue destination="RXG-Rn-Ola" kind="push" id="cfG-l3-ibE"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -67,7 +68,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="wjc-fU-Gvp"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yosemite" translatesAutoresizingMaskIntoConstraints="NO" id="59G-AS-CwS">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareImage1" translatesAutoresizingMaskIntoConstraints="NO" id="59G-AS-CwS">
                                                     <rect key="frame" x="0.0" y="58" width="320" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="59G-AS-CwS" secondAttribute="height" multiplier="8:5" id="hI9-yE-6K9"/>
@@ -176,7 +177,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LGI-xK-He8"/>
                                     <barButtonItem image="camera" id="f9V-du-zwc">
                                         <connections>
-                                            <segue destination="uSo-Gb-0DD" kind="push" id="Iyg-5L-gKo"/>
+                                            <segue destination="uSo-Gb-0DD" kind="push" identifier="cameraSegue" id="Iyg-5L-gKo"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="w6J-pi-zZL"/>
@@ -206,7 +207,6 @@
                         <outlet property="homeButton" destination="1Yz-gH-se3" id="EKu-sQ-9kh"/>
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
-                        <segue destination="RXG-Rn-Ola" kind="push" identifier="commentSegue" id="iiu-6R-dlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -349,7 +349,7 @@
         <image name="chatIcon" width="128" height="101"/>
         <image name="heartWhite" width="128" height="128"/>
         <image name="home" width="30" height="30"/>
+        <image name="squareImage1" width="225" height="225"/>
         <image name="userProfile" width="30" height="30"/>
-        <image name="yosemite" width="288" height="216"/>
     </resources>
 </document>

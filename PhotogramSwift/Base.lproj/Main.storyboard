@@ -53,6 +53,7 @@
                                                             <state key="normal" title="Button" image="chatIcon"/>
                                                             <connections>
                                                                 <action selector="commentButtonPressed:" destination="SlR-wi-wpj" eventType="touchUpInside" id="6e3-ch-nVV"/>
+                                                                <segue destination="RXG-Rn-Ola" kind="push" id="cfG-l3-ibE"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -206,7 +207,6 @@
                         <outlet property="homeButton" destination="1Yz-gH-se3" id="EKu-sQ-9kh"/>
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
-                        <segue destination="RXG-Rn-Ola" kind="push" identifier="segue1" id="iiu-6R-dlG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

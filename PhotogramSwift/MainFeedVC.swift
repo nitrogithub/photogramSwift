@@ -146,7 +146,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
 
     func commentSeguePlease() {
-        self.performSegueWithIdentifier("segue1", sender: nil)
+        self.performSegueWithIdentifier("commentSegue1", sender: self)
     }
     
     

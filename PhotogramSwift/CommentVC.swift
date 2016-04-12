@@ -10,6 +10,8 @@ import UIKit
 
 class CommentVC: UIViewController {
 
+    @IBOutlet weak var spacerBottomConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

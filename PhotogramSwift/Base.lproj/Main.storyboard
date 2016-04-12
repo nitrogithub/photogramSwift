@@ -272,6 +272,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6BR-zL-ja8"/>
+                    <connections>
+                        <outlet property="spacerBottomConstraint" destination="CJg-NO-Gpc" id="0O9-4F-AJV"/>
+                    </connections>
                 </viewController>
             </objects>
             <point key="canvasLocation" x="1782" y="1035"/>

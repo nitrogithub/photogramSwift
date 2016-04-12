@@ -177,7 +177,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="LGI-xK-He8"/>
                                     <barButtonItem image="camera" id="f9V-du-zwc">
                                         <connections>
-                                            <segue destination="uSo-Gb-0DD" kind="push" id="Iyg-5L-gKo"/>
+                                            <segue destination="uSo-Gb-0DD" kind="push" identifier="cameraSegue" id="Iyg-5L-gKo"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="w6J-pi-zZL"/>

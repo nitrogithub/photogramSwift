@@ -98,9 +98,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         
         
-        
-        
-        
         let fetchRequest2 = NSFetchRequest(entityName: "Image")
         do {
             let results = try moc.executeFetchRequest(fetchRequest2)
@@ -123,25 +120,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedTableViewCell
-//        let userTemp = self.users[indexPath.row] as! User
-//        let imageTemp = self.images[indexPath.row] as! Image
-//        print("\(imageTemp)")
-//        cell.usernameLabel.text = imageTemp.user?.profileName
-//        cell.mainImageView.image = UIImage(data: imageTemp.image!)
-//
         cell.imageCell = self.images[indexPath.row] as? Image
-        
-        
-//        print("\(userTemp.profileName)")
-//        cell.profileImage.image =
-//        cell.timeUploadedLabel.text =
-//        cell.mainImageView.image = 
-        
-        
-//        let cell2 = tableView.dequeueReusableCellWithIdentifier("imageCell", forIndexPath: indexPath)
-//        let cell3 = tableView.dequeueReusableCellWithIdentifier("likeCell", forIndexPath: indexPath)
-//        let cell4 = tableView.dequeueReusableCellWithIdentifier("commentCell", forIndexPath: indexPath)
-//        cell.userName.text = testArray[indexPath.row].name
         return cell
     }
 
@@ -150,7 +129,23 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let desVC = segue.destinationViewController as! MediaViewController
+        desVC.user = self.users[0] as! User
+    }
+    
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.images.count
+    }
+    
+    
+    func didSharedImage() {
+        //LOAD FORM CORE DATA
+        
+        self.saveData()
+        self.loadFromCoreData()
+        self.tableView.reloadData()
+        
     }
 }

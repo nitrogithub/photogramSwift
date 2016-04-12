@@ -74,7 +74,7 @@ class ShareViewController: UIViewController {
     }
     
     
-    //get GPS coordinate form Image
+    
     
     
 

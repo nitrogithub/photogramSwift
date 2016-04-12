@@ -20,12 +20,13 @@
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="realName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userProfileImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <relationship name="comments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Comment" inverseName="user" inverseEntity="Comment" syncable="YES"/>
         <relationship name="image" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Image" inverseName="user" inverseEntity="Image" syncable="YES"/>
     </entity>
     <elements>
         <element name="Comment" positionX="-396" positionY="-280" width="128" height="103"/>
         <element name="Image" positionX="-407" positionY="-643" width="128" height="163"/>
-        <element name="User" positionX="-729" positionY="-514" width="128" height="118"/>
+        <element name="User" positionX="-729" positionY="-514" width="128" height="133"/>
     </elements>
 </model>

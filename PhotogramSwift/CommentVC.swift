@@ -11,6 +11,7 @@ import UIKit
 class CommentVC: UIViewController {
 
     @IBOutlet weak var spacerBottomConstraint: NSLayoutConstraint!
+    var image = Image()
     
     override func viewDidLoad() {
         super.viewDidLoad()

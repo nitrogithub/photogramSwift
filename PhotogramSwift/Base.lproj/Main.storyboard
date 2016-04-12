@@ -53,7 +53,7 @@
                                                             <state key="normal" title="Button" image="chatIcon"/>
                                                             <connections>
                                                                 <action selector="commentButtonPressed:" destination="SlR-wi-wpj" eventType="touchUpInside" id="6e3-ch-nVV"/>
-                                                                <segue destination="RXG-Rn-Ola" kind="push" id="cfG-l3-ibE"/>
+                                                                <segue destination="RXG-Rn-Ola" kind="push" id="FM8-VR-qAz"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -183,7 +183,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="w6J-pi-zZL"/>
                                     <barButtonItem image="userProfile" id="KMo-TY-3HV">
                                         <connections>
-                                            <segue destination="fIy-fm-DFV" kind="push" id="CxI-l7-nav"/>
+                                            <segue destination="fIy-fm-DFV" kind="push" identifier="profileSegue" id="CxI-l7-nav"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>

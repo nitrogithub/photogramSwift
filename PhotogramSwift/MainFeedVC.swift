@@ -130,8 +130,18 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let desVC = segue.destinationViewController as! MediaViewController
-        desVC.user = self.users[0] as! User
+        if segue.identifier == "cameraSegue" {
+            let desVC = segue.destinationViewController as! MediaViewController
+            desVC.user = self.users[0] as! User
+            
+        } else if segue.identifier == "commentSegue" {
+            let desVC = segue.destinationViewController as! CommentVC
+            desVC.image = sender as! Image
+            
+        } else if segue.identifier == "profileSegue" {
+//            let desVC = segue.destinationViewController as! EditProfileViewController
+//            desVC.user = self.users[0] as! User
+        }
     }
     
     

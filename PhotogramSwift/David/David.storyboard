@@ -51,6 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onNextButtonPressed:" destination="Fae-HJ-Upq" eventType="touchUpInside" id="LMz-Yl-Wgh"/>
+                                    <segue destination="Uqc-Yc-4dK" kind="show" identifier="GoToShareScreenVC" id="9qZ-gI-23b"/>
                                 </connections>
                             </button>
                         </subviews>

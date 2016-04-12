@@ -11,7 +11,6 @@ import Photos
 import CoreData
 import MobileCoreServices
 
-
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     //@IBOutlet weak var editButton: UIButton!
@@ -26,8 +25,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var genderType: String = ""
     
     
+    //var moc : NSManagedObjectContext!
+    //var newUser: User
     
-    
+
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -40,20 +41,15 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         profileImage.clipsToBounds = true
         profileImage.layer.borderWidth = 3.0
         profileImage.layer.borderColor = UIColor.whiteColor().CGColor
-        profileImage.layer.cornerRadius = 10.0
         
         // UX enable/disable buttons
         profileImage.userInteractionEnabled = false
         userName.userInteractionEnabled = false
         userGender.userInteractionEnabled = false
         
-        //self.userName.delegate = self
         userName.resignFirstResponder()
-
-        
-        // CoreData
-        
     }
+    
     
     
     func textFieldShouldReturn(userText: UITextField!) -> Bool {
@@ -77,6 +73,14 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             //Assign tap gesture to profile Image
             let tap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.imageTapped(_:)))
             profileImage.addGestureRecognizer(tap)
+            
+            // CoreData
+//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//            let moc: NSManagedObjectContext = appDelegate.managedObjectContext
+//            
+//            newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+//            
+//            newUser.realName = userName.text
             
         }else {
             self.navigationItem.rightBarButtonItem!.title = "Edit"
@@ -219,14 +223,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
 
-    
-    
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
-    {
-        
-    }
-    
 
     
     

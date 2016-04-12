@@ -42,7 +42,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //        testArray = [testObject1, testObject2, testObject3]
         
         self.loadFromCoreData()
-        if users.count == 0 {
+        if self.users.count == 0 {
             print("empty MOC, createInitialData")
             self.createInitialData()
         }
@@ -87,6 +87,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedTableViewCell
         let userTemp = self.users[indexPath.row] as! User
         cell.usernameLabel.text = userTemp.profileName
+        print("\(userTemp.profileName)")
 //        cell.profileImage.image = 
 //        cell.timeUploadedLabel.text =
 //        cell.mainImageView.image = 
@@ -105,6 +106,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return testArray.count
+        return self.users.count
     }
 }

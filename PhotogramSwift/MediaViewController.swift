@@ -42,6 +42,8 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
         imageView.layer.borderWidth = 3.0
         imageView.layer.borderColor = UIColor.whiteColor().CGColor
         imageView.layer.cornerRadius = 10.0
+        
+        print(user.realName, user.gender, user.profileName, user.image)
 
     }
     

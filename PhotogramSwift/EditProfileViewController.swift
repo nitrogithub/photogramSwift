@@ -25,8 +25,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var genderType: String = ""
     
     
-    //var moc : NSManagedObjectContext!
-    //var newUser: User
+    var moc : NSManagedObjectContext!
+    var newUser: User!
     
 
     override func viewDidLoad()
@@ -75,12 +75,12 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             profileImage.addGestureRecognizer(tap)
             
             // CoreData
-//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//            let moc: NSManagedObjectContext = appDelegate.managedObjectContext
-//            
-//            newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-//            
-//            newUser.realName = userName.text
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            let moc: NSManagedObjectContext = appDelegate.managedObjectContext
+            
+            newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+            
+            newUser.realName = userName.text
             
         }else {
             self.navigationItem.rightBarButtonItem!.title = "Edit"
@@ -90,13 +90,10 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             
         
         }
-        
-        
-        
     }
     
     
-    
+    // Tap gesture handeler
     func imageTapped(img: AnyObject)
     {
         let alertController = UIAlertController(title: "Change Profile picture", message: "select one", preferredStyle: .ActionSheet)

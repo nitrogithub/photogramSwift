@@ -124,9 +124,9 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    func commentSeguePlease() {
-        self.performSegueWithIdentifier("commentSegue1", sender: self)
-    }
+//    func commentSeguePlease() {
+//        self.performSegueWithIdentifier("commentSegue1", sender: self)
+//    }
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -143,6 +143,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
            desVC.user = self.users[0] as! User
         }
     }
+    
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

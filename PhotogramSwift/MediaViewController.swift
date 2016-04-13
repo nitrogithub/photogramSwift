@@ -9,6 +9,7 @@
 import UIKit
 import Photos
 import MobileCoreServices
+import CoreData
 
 class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -28,7 +29,22 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
         nextButton.layer.cornerRadius = 0.05 * nextButton.bounds.size.width
+        
+        // Navigation Bar UI
+        navigationController!.navigationBar.barTintColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.tintColor = UIColor.grayColor()
+        
+        
+        //Image 
+        imageView.layer.cornerRadius = imageView.frame.size.width / 2;
+        imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 3.0
+        imageView.layer.borderColor = UIColor.whiteColor().CGColor
+        imageView.layer.cornerRadius = 10.0
+
     }
+    
     
     
     // View WILL load
@@ -69,7 +85,7 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
             imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
+            imagePicker.allowsEditing = false // If True, it shows up square on screen
             
             self.presentViewController(imagePicker, animated: true, completion: nil)
             newMedia = true

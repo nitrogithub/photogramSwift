@@ -124,15 +124,30 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
 
-    func commentSeguePlease() {
-        self.performSegueWithIdentifier("commentSegue1", sender: self)
-    }
+//    func commentSeguePlease() {
+//        self.performSegueWithIdentifier("commentSegue1", sender: self)
+//    }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let desVC = segue.destinationViewController as! MediaViewController
-        desVC.user = self.users[0] as! User
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if (segue.identifier == "CameraSegue")
+        {
+            segue.destinationViewController as! MediaViewController
+            //desVC.user = self.users[0] as! User
+        }
+        if (segue.identifier == "profile")
+        {
+            segue.destinationViewController as! EditProfileViewController
+            //do things
+        }
+        if (segue.identifier == "commentSegue1")
+        {
+            segue.destinationViewController as! CommentVC
+            //do things
+        }
     }
+    
     
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

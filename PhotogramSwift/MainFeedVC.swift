@@ -132,7 +132,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "cameraSegue" {
             let desVC = segue.destinationViewController as! MediaViewController
-            desVC.user = self.users[0] as! User
+            //desVC.user = self.users[0] as! User
             
         } else if segue.identifier == "commentSegue" {
             let desVC = segue.destinationViewController as! CommentVC
@@ -140,7 +140,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             
         } else if segue.identifier == "profileSegue" {
            let desVC = segue.destinationViewController as! EditProfileViewController
-           desVC.user = self.users[0] as! User
+           //desVC.user = self.users[0] as! User
         }
     }
     

@@ -22,6 +22,9 @@ class CommentVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController!.navigationBar.barTintColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.tintColor = UIColor.grayColor()
 
        
     }
@@ -44,26 +47,15 @@ class CommentVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
     }
     
     func keyboardWillShowNotification(notification: NSNotification) {
-       
-        let userInfo = notification.userInfo!
-        
-        let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
-        let keyboardEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
-        let convertedKeyboardEndFrame = view.convertRect(keyboardEndFrame, fromView: view.window)
-        let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
-        let animationCurve = UIViewAnimationOptions(rawValue: (UInt(rawAnimationCurve)|UInt(1<<2)))
-        
-        print("prev \(spacerBottomConstraint.constant) spacer \(view.bounds) keyboard \(convertedKeyboardEndFrame)")
-        spacerBottomConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMaxY(convertedKeyboardEndFrame);
-        
-        UIView.animateWithDuration(animationDuration, delay: 0.0, options: animationCurve, animations: {
-            self.view.layoutIfNeeded()
-            }, completion: nil)
-
+        updateBottomLayoutConstraintWithNotificationUpdateKeyboard(notification)
     }
     
     func keyboardWillHideNotification(notification: NSNotification) {
-       
+        updateBottomLayoutConstraintWithNotificationUpdateKeyboard(notification)
+    }
+    
+    func updateBottomLayoutConstraintWithNotificationUpdateKeyboard(notification: NSNotification) {
+        
         let userInfo = notification.userInfo!
         
         let animationDuration = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as! NSNumber).doubleValue
@@ -72,13 +64,13 @@ class CommentVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
         let rawAnimationCurve = (notification.userInfo![UIKeyboardAnimationCurveUserInfoKey] as! NSNumber).unsignedIntValue << 16
         let animationCurve = UIViewAnimationOptions(rawValue: (UInt(rawAnimationCurve)|UInt(1<<2)))
         
-        print("prev \(spacerBottomConstraint.constant) spacer \(view.bounds) keyboard \(convertedKeyboardEndFrame)")
-        spacerBottomConstraint.constant = CGRectGetMaxY(view.bounds) - CGRectGetMaxY(convertedKeyboardEndFrame) ;
+        spacerBottomConstraint.constant = CGRectGetMinY(convertedKeyboardEndFrame)-CGRectGetMaxY(view.bounds)
         
         UIView.animateWithDuration(animationDuration, delay: 0.0, options: animationCurve, animations: {
             self.view.layoutIfNeeded()
             }, completion: nil)
     }
+
 
     /*func updateBottomLayoutConstraintWithNotification(notification: NSNotification) {
         

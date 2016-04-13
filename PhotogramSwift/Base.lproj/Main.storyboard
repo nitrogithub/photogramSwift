@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="395"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SlR-wi-wpj" id="gtx-Xg-Qtw">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="394"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="394.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RE8-yM-0se">
@@ -227,14 +227,12 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kz-P3-EkC" userLabel="spacer">
                                 <rect key="frame" x="16" y="516" width="288" height="8"/>
-                                <color key="backgroundColor" red="0.75294117650000003" green="0.90980392160000001" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="65o-dO-SrV"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-kX-D0S" userLabel="commentTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-kX-D0S" userLabel="commentTextField">
                                 <rect key="frame" x="16" y="486" width="234" height="30"/>
-                                <color key="backgroundColor" red="0.66283908489999999" green="1" blue="0.61307424359999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4So-a2-aLR"/>
                                 </constraints>
@@ -275,13 +273,12 @@
                                     <outlet property="delegate" destination="RXG-Rn-Ola" id="0eP-9C-aYK"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-lK-X3O" userLabel="sendButton">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-lK-X3O" userLabel="sendButton">
                                 <rect key="frame" x="258" y="486" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.49590355470000003" blue="0.37950296610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4qo-qN-Sph"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="Send"/>
                                 <connections>
                                     <action selector="onPressedSendButton:" destination="RXG-Rn-Ola" eventType="touchUpInside" id="a58-Xl-Col"/>
                                 </connections>

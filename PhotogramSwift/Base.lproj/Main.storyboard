@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -240,7 +240,41 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RXG-Rn-Ola" id="uGD-mi-HUZ"/>
+                                </connections>
                             </textField>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OBu-8s-rSk" userLabel="tableView">
+                                <rect key="frame" x="16" y="64" width="288" height="414"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" textLabel="nDH-St-Jgr" imageView="QEa-oB-dPQ" style="IBUITableViewCellStyleDefault" id="RUD-OT-aHz">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RUD-OT-aHz" id="lhp-Bh-2HW">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nDH-St-Jgr">
+                                                    <rect key="frame" x="74" y="0.0" width="199" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ProfilePicDefault" id="QEa-oB-dPQ">
+                                                    <rect key="frame" x="15" y="0.0" width="44" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RXG-Rn-Ola" id="PbF-yW-hoT"/>
+                                    <outlet property="delegate" destination="RXG-Rn-Ola" id="0eP-9C-aYK"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-lK-X3O" userLabel="sendButton">
                                 <rect key="frame" x="258" y="486" width="46" height="30"/>
                                 <color key="backgroundColor" red="0.97647058819999999" green="0.49590355470000003" blue="0.37950296610000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -248,11 +282,10 @@
                                     <constraint firstAttribute="height" constant="30" id="4qo-qN-Sph"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onPressedSendButton:" destination="RXG-Rn-Ola" eventType="touchUpInside" id="a58-Xl-Col"/>
+                                </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OBu-8s-rSk" userLabel="tableView">
-                                <rect key="frame" x="16" y="64" width="288" height="414"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -272,6 +305,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="6BR-zL-ja8"/>
                     <connections>
+                        <outlet property="commentTextField" destination="Oyk-kX-D0S" id="DYH-wK-5lP"/>
+                        <outlet property="myTableView" destination="OBu-8s-rSk" id="eqL-Ov-kAl"/>
                         <outlet property="spacerBottomConstraint" destination="CJg-NO-Gpc" id="0O9-4F-AJV"/>
                     </connections>
                 </viewController>
@@ -345,6 +380,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ProfilePicDefault" width="512" height="512"/>
         <image name="camera" width="30" height="30"/>
         <image name="chatIcon" width="128" height="101"/>
         <image name="heartWhite" width="128" height="128"/>

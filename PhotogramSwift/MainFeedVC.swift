@@ -139,8 +139,8 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             desVC.image = sender as! Image
             
         } else if segue.identifier == "profileSegue" {
-//            let desVC = segue.destinationViewController as! EditProfileViewController
-//            desVC.user = self.users[0] as! User
+           let desVC = segue.destinationViewController as! EditProfileViewController
+           desVC.user = self.users[0] as! User
         }
     }
     

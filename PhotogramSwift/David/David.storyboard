@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--Let's share ..-->
         <scene sceneID="r5Q-m2-Kap">
             <objects>
                 <viewController storyboardIdentifier="UIViewController-Fae-HJ-Upq" id="Fae-HJ-Upq" customClass="MediaViewController" customModule="PhotogramSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="99y-rF-T2J">
-                                <rect key="frame" x="239" y="30" width="123" height="41"/>
+                                <rect key="frame" x="239" y="74" width="123" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="vqP-Wb-aNJ"/>
                                 </constraints>
@@ -32,7 +32,7 @@
                                 </connections>
                             </segmentedControl>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cameradefault" translatesAutoresizingMaskIntoConstraints="NO" id="oMb-oY-7dc">
-                                <rect key="frame" x="150" y="90" width="300" height="300"/>
+                                <rect key="frame" x="150" y="135" width="300" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="2gr-Jo-Scq"/>
@@ -51,6 +51,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onNextButtonPressed:" destination="Fae-HJ-Upq" eventType="touchUpInside" id="LMz-Yl-Wgh"/>
+                                    <segue destination="Uqc-Yc-4dK" kind="show" identifier="GoToShareScreenVC" id="9qZ-gI-23b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -61,17 +62,11 @@
                             <constraint firstItem="oMb-oY-7dc" firstAttribute="centerX" secondItem="zqo-FY-D1g" secondAttribute="centerX" id="Egf-Iw-NOS"/>
                             <constraint firstItem="P9B-Mg-hYZ" firstAttribute="centerX" secondItem="zqo-FY-D1g" secondAttribute="centerX" id="Qx1-qW-XuQ"/>
                             <constraint firstItem="99y-rF-T2J" firstAttribute="top" secondItem="yOC-ny-0a4" secondAttribute="bottom" constant="10" id="Spz-zz-pjZ"/>
-                            <constraint firstItem="oMb-oY-7dc" firstAttribute="top" secondItem="99y-rF-T2J" secondAttribute="bottom" constant="20" id="p9V-DH-aBC"/>
+                            <constraint firstItem="oMb-oY-7dc" firstAttribute="top" secondItem="99y-rF-T2J" secondAttribute="bottom" constant="21" id="p9V-DH-aBC"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="Title" id="puI-aF-QJz">
-                        <barButtonItem key="rightBarButtonItem" title="Next" id="uck-l0-kwL">
-                            <connections>
-                                <segue destination="Uqc-Yc-4dK" kind="show" identifier="GoToShareScreenVC" id="qzy-w3-s5l"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Let's share .." id="puI-aF-QJz"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="imageView" destination="oMb-oY-7dc" id="hEN-yE-Udw"/>
@@ -81,9 +76,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iXN-Jj-kLf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843" y="1887"/>
+            <point key="canvasLocation" x="2655" y="1887"/>
         </scene>
-        <!--Edit Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="CKK-Z3-ooN">
             <objects>
                 <viewController storyboardIdentifier="UIViewController-KiD-DN-kJg" id="KiD-DN-kJg" customClass="EditProfileViewController" customModule="PhotogramSwift" customModuleProvider="target" sceneMemberID="viewController">
@@ -95,20 +90,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="ProfilePicDefault" translatesAutoresizingMaskIntoConstraints="NO" id="a0s-0c-Bgq">
+                            <imageView contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ProfilePicDefault" translatesAutoresizingMaskIntoConstraints="NO" id="a0s-0c-Bgq">
                                 <rect key="frame" x="200" y="104" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="ORV-sD-vNp"/>
                                     <constraint firstAttribute="height" constant="200" id="ez8-44-Wbq"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="David Iskander" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWF-j2-VDs">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="David Iskander" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lWF-j2-VDs">
                                 <rect key="frame" x="242" y="324" width="117" height="30"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Y5n-v9-q2w"/>
+                                </constraints>
+                                <color key="textColor" red="0.95983244239999999" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="KiD-DN-kJg" id="MzC-KP-M7G"/>
+                                </connections>
                             </textField>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xqe-8i-eVL">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xqe-8i-eVL">
                                 <rect key="frame" x="242" y="374" width="117" height="29"/>
                                 <segments>
                                     <segment title="Male"/>
@@ -116,50 +118,32 @@
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="onSaveButtonPressed:" destination="KiD-DN-kJg" eventType="valueChanged" id="kfI-Nb-HyZ"/>
+                                    <action selector="genderSelection:" destination="KiD-DN-kJg" eventType="valueChanged" id="viR-fV-NqJ"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cou-ut-dLe">
-                                <rect key="frame" x="270" y="432" width="60" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="PzI-wx-HCm"/>
-                                    <constraint firstAttribute="width" constant="60" id="zpF-LJ-hRK"/>
-                                </constraints>
-                                <state key="normal" title="Save"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lWF-j2-VDs" firstAttribute="top" secondItem="a0s-0c-Bgq" secondAttribute="bottom" constant="20" id="0b6-7d-Ean"/>
-                            <constraint firstItem="Cou-ut-dLe" firstAttribute="centerX" secondItem="hMt-RA-Xdt" secondAttribute="centerX" id="AfT-bK-hiy"/>
                             <constraint firstItem="xqe-8i-eVL" firstAttribute="top" secondItem="lWF-j2-VDs" secondAttribute="bottom" constant="20" id="U3j-aF-f4Q"/>
                             <constraint firstItem="xqe-8i-eVL" firstAttribute="centerX" secondItem="hMt-RA-Xdt" secondAttribute="centerX" id="XE8-yk-Jwj"/>
-                            <constraint firstItem="Cou-ut-dLe" firstAttribute="top" secondItem="xqe-8i-eVL" secondAttribute="bottom" constant="30" id="Yrt-TB-FjZ"/>
+                            <constraint firstItem="lWF-j2-VDs" firstAttribute="leading" secondItem="xqe-8i-eVL" secondAttribute="leading" id="ZJa-By-uRp"/>
+                            <constraint firstAttribute="bottom" secondItem="lWF-j2-VDs" secondAttribute="bottom" constant="246" id="Zmj-4U-HrQ"/>
                             <constraint firstItem="lWF-j2-VDs" firstAttribute="centerX" secondItem="hMt-RA-Xdt" secondAttribute="centerX" id="mep-T7-Xr2"/>
                             <constraint firstItem="a0s-0c-Bgq" firstAttribute="centerX" secondItem="hMt-RA-Xdt" secondAttribute="centerX" id="nAd-az-Yrc"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3tD-Yw-DUk">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="3JF-cA-UlX">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Agz-QF-8HW">
-                                <rect key="frame" x="550" y="7" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" title="Edit">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="onEditProfileButtonPressed:" destination="KiD-DN-kJg" eventType="touchUpInside" id="L38-bm-RYG"/>
-                                </connections>
-                            </button>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <navigationItem key="navigationItem" title="Profile" id="3tD-Yw-DUk">
+                        <barButtonItem key="rightBarButtonItem" title="Edit" id="tUo-SY-a8I">
+                            <connections>
+                                <action selector="onEditProfileButtonPressed:" destination="KiD-DN-kJg" id="Jy3-aC-A7r"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="editButton" destination="Agz-QF-8HW" id="7oM-mW-45q"/>
+                        <outlet property="editButton" destination="tUo-SY-a8I" id="nDV-7y-eba"/>
                         <outlet property="profileImage" destination="a0s-0c-Bgq" id="fPj-z6-Ghp"/>
-                        <outlet property="saveButton" destination="Cou-ut-dLe" id="2Zv-Pc-ihR"/>
                         <outlet property="userGender" destination="xqe-8i-eVL" id="HWs-qq-Pzx"/>
                         <outlet property="userName" destination="lWF-j2-VDs" id="tuv-R6-ZsC"/>
                     </connections>
@@ -174,7 +158,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-isG-tG-nbm" id="Uqc-Yc-4dK" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EL2-XP-4WI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2531" y="1887"/>
+            <point key="canvasLocation" x="3343" y="1887"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="O8H-uK-g3W">
@@ -193,6 +177,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cao-tl-qlg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1843" y="1134"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="1ml-Kh-dq3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WTZ-y3-uTA" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Cow-5o-LWw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Fae-HJ-Upq" kind="relationship" relationship="rootViewController" id="X0l-ij-Qve"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCC-is-EB1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1843" y="1887"/>
         </scene>
     </scenes>
     <resources>

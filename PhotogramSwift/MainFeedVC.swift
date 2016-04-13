@@ -131,7 +131,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let desVC = segue.destinationViewController as! MediaViewController
-        desVC.user = self.users[0] as! User
+        //desVC.user = self.users[0] as! User
     }
     
     

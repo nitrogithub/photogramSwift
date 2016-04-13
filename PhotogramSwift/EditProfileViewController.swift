@@ -24,14 +24,19 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     var newMedia: Bool?
     var genderType: String = ""
     
-    
-    //var moc : NSManagedObjectContext!
-    //var newUser: User
+    //var delegate : AppDelegate?
+    var moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+    //var newUser = User()
     
 
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // Setting up moc
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        self.moc = appDelegate.managedObjectContext
+        
         
         // UI stuff
         self.view.backgroundColor = UIColor.blackColor()
@@ -75,23 +80,17 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             profileImage.addGestureRecognizer(tap)
             
             // CoreData
-//            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//            let moc: NSManagedObjectContext = appDelegate.managedObjectContext
-//            
-//            newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-//            
-//            newUser.realName = userName.text
+            let newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
+            
+            newUser.realName = userName.text
+            
             
         }else {
             self.navigationItem.rightBarButtonItem!.title = "Edit"
             profileImage.userInteractionEnabled = false
             userName.userInteractionEnabled = false
             userGender.userInteractionEnabled = false
-            
-        
         }
-        
-        
         
     }
     
@@ -223,20 +222,4 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

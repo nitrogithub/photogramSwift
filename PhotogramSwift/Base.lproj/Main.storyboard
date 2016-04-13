@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -183,7 +183,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="w6J-pi-zZL"/>
                                     <barButtonItem image="userProfile" id="KMo-TY-3HV">
                                         <connections>
-                                            <segue destination="fIy-fm-DFV" kind="push" identifier="profileSegue" id="CxI-l7-nav"/>
+                                            <action selector="profileButtonTapped:" destination="BYZ-38-t0r" id="au3-Vh-DT9"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -207,6 +207,7 @@
                         <outlet property="homeButton" destination="1Yz-gH-se3" id="EKu-sQ-9kh"/>
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
+                        <segue destination="fIy-fm-DFV" kind="push" identifier="profileSegue" id="jlR-Vx-2px"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

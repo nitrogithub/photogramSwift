@@ -19,7 +19,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userGender: UISegmentedControl!
     @IBOutlet weak var saveButton: UIButton!
-    var user = User()
+    var user : User!
 
     //Variables
     var newMedia: Bool?

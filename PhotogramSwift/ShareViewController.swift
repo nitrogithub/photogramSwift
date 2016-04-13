@@ -21,8 +21,11 @@ protocol ShareViewControllerDelegate: class {
 
 class ShareViewController: UIViewController {
     //Image that passed from other VC
-    let recievedImage = UIImage()
-    let user = User()
+    var recievedImage = UIImage()
+    
+    
+//    var user = User() -> Atousa this one is wrong. this is initializing which we do not want
+    var user : User!
     
     
     

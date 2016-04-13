@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  PhotogramSwift
 //
-//  Created by Atousa Duprat on 4/11/16.
+//  Created by Atousa Duprat on 4/12/16.
 //  Copyright © 2016 Kevin Kim. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -17,6 +17,7 @@ extension User {
     @NSManaged var gender: String?
     @NSManaged var profileName: String?
     @NSManaged var realName: String?
+    @NSManaged var userProfileImage: NSData?
     @NSManaged var comments: NSSet?
     @NSManaged var image: NSSet?
 

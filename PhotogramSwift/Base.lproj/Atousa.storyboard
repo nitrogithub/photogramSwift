@@ -18,10 +18,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w2c-IZ-7Vn">
-                                <rect key="frame" x="20" y="72" width="240" height="128"/>
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="280"/>
                             </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGd-tx-f0C">
-                                <rect key="frame" x="335" y="109" width="97" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vGd-tx-f0C">
+                                <rect key="frame" x="12" y="318" width="489" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WAd-0U-n1R">
+                                <rect key="frame" x="93" y="570" width="291" height="30"/>
+                                <state key="normal" title="Share"/>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wuD-w8-A5D">
+                                <rect key="frame" x="12" y="280" width="489" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -43,14 +52,22 @@
                     <toolbarItems>
                         <barButtonItem title="Share" id="EoN-Dl-Qjd">
                             <connections>
+                                <action selector="onPressedShareButton:" destination="isG-tG-nbm" id="jLA-Yt-UrN"/>
                                 <segue destination="7S6-99-6dz" kind="show" id="gRh-T9-RSs"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
+                    <connections>
+                        <outlet property="OnPresssedShareButton" destination="WAd-0U-n1R" id="1H0-em-WXg"/>
+                        <outlet property="imageToShare" destination="w2c-IZ-7Vn" id="snp-FP-Ast"/>
+                        <outlet property="locationOfImage" destination="vGd-tx-f0C" id="JF9-dN-52S"/>
+                        <outlet property="nameOfImage" destination="wuD-w8-A5D" id="kim-Ej-zP4"/>
+                        <outlet property="onPressedShareButton" destination="WAd-0U-n1R" id="O8D-0m-VtY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irf-Yw-asi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2531" y="1887"/>
+            <point key="canvasLocation" x="2563" y="1747"/>
         </scene>
         <!--UIViewController-BYZ-38-t0r-->
         <scene sceneID="W2c-fg-kHT">
@@ -58,7 +75,7 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UIViewController-BYZ-38-t0r" id="7S6-99-6dz" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pKD-HE-xc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843" y="1095"/>
+            <point key="canvasLocation" x="3061" y="1887"/>
         </scene>
     </scenes>
 </document>

@@ -17,6 +17,8 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var mediaBar: UISegmentedControl!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nextButton: UIButton!
+    var user = User()
+
     
     //Variables
     var newMedia: Bool?

@@ -16,6 +16,16 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var commentsTextView: UITextView!
     
+    
+    
+    //1. What needs to be done before this is fired?
+    weak var imageCell: Image? {
+        didSet {
+            self.usernameLabel.text = self.imageCell?.user?.profileName
+            self.mainImageView.image = UIImage(data: (self.imageCell?.image)!)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -70,13 +80,14 @@ class FeedTableViewCell: UITableViewCell {
     }
 
     @IBAction func likeButtonPressed(sender: UIButton) {
-//        self.delegate.performSegue("commentSegue")
-//        self.performSegueWithIdentifier("commentSegue", sender: nil)
-        let descVC = MainFeedVC()
-        descVC.commentSeguePlease()
 
     }
     @IBAction func commentButtonPressed(sender: UIButton) {
+        //        self.delegate.performSegue("commentSegue")
+        //        self.performSegueWithIdentifier("commentSegue", sender: nil)
+        //let descVC = MainFeedVC()
+        //descVC.commentSeguePlease()
+
     }
     
 }

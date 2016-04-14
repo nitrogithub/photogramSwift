@@ -95,7 +95,6 @@
         <!--Sharing View Controller-->
         <scene sceneID="bnr-a7-fMy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vuz-j7-1Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="NnM-FU-wf7" customClass="SharingViewController" customModule="PhotogramSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XYH-nD-QHc"/>
@@ -183,6 +182,7 @@
                         <outlet property="shareButton" destination="3I3-Mu-BLt" id="DDO-Bs-gwO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vuz-j7-1Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3513" y="1927"/>
         </scene>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="4cQ-BT-dCn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -207,8 +207,6 @@
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
                         <segue destination="fIy-fm-DFV" kind="push" identifier="profileSegue" id="jlR-Vx-2px"/>
-                        <segue destination="RXG-Rn-Ola" kind="push" identifier="asdf" id="9GI-cm-5L0"/>
-                        <segue destination="RXG-Rn-Ola" kind="push" identifier="commentSeg" id="hMn-gX-myS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -387,7 +385,4 @@
         <image name="squareImage1" width="225" height="225"/>
         <image name="userProfile" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="hMn-gX-myS"/>
-    </inferredMetricsTieBreakers>
 </document>

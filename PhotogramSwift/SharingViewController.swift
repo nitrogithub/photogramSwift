@@ -22,14 +22,15 @@ class SharingViewController: UIViewController {
     var recievedImage = UIImage()
 
     //set up the delegate property
-    weak var delegate:ShareViewControllerDelegate?
+//    weak var delegate:ShareViewControllerDelegate? --> Atousa: This is the wrong way to send a delegate
+
     
     //outlets
     @IBOutlet weak var nameOfImage: UITextField!
     @IBOutlet weak var imageToShare: UIImageView!
     @IBOutlet weak var locationOfImage: UITextField!
     @IBOutlet weak var shareButton: UIButton!
-    
+    var moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,11 +58,18 @@ class SharingViewController: UIViewController {
         
         shareImage.name = self.nameOfImage.text
         shareImage.image = UIImagePNGRepresentation(recievedImage)
-        
+        print("\(shareImage.name)")
+//        print("\(shareImage.image)")
     }
     
     @IBAction func onPressedShareButton(sender: AnyObject) {
-        delegate?.didSharedImage()
+   
+
+
+        let descVC = MainFeedVC()
+        descVC.didSharedImage()
+//        delegate?.didSharedImage() --> Atousa this is the wrong way to call a delegate
+
     }
     
     

@@ -52,7 +52,8 @@
                                                             </constraints>
                                                             <state key="normal" title="Button" image="chatIcon"/>
                                                             <connections>
-                                                                <segue destination="RXG-Rn-Ola" kind="push" identifier="commentSegue" id="FM8-VR-qAz"/>
+                                                                <action selector="commentButtonPressed:" destination="SlR-wi-wpj" eventType="touchUpInside" id="6e3-ch-nVV"/>
+                                                                <segue destination="RXG-Rn-Ola" kind="push" identifier="commentButtonSegue" id="u2r-P5-DRm"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -388,6 +389,6 @@
         <image name="userProfile" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hMn-gX-myS"/>
+        <segue reference="u2r-P5-DRm"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -171,6 +171,19 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let desVC = segue.destinationViewController as! MediaViewController
             desVC.user = self.users[0] as? User
             
+<<<<<<< HEAD
+            
+            
+        } else if segue.identifier == "commentButtonSegue" {
+            let desVC = segue.destinationViewController as! CommentVC
+//            desVC.image = sender as! Image
+            desVC.image = self.imageCell
+//            let userN = self.imageCell.user?.profileName
+//            print("\(userN)")
+            
+            
+            
+=======
         } else if segue.identifier == "commentSegue" {
             // Atousa:: Convert from UIButton to IndexPath
             let pointInTable: CGPoint = sender!.convertPoint(sender!.bounds.origin, toView: self.tableView)
@@ -180,6 +193,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             // Atousa:: Pick the image at IndexPath.row
             let desVC = segue.destinationViewController as! CommentVC
             desVC.image = self.images[row] as? Image            
+>>>>>>> origin/master
         } else if segue.identifier == "profileSegue" {
             print("profile segue underway")
            let desVC = segue.destinationViewController as! EditProfileViewController
@@ -210,7 +224,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     func didSharedImage() {
         //LOAD FORM CORE DATA
-        print("returned from ShareVC")
+        
         self.saveData()
         self.loadFromCoreData()
         self.tableView.reloadData()

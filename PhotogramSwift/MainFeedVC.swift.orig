@@ -65,6 +65,10 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    override func viewWillAppear(animated: Bool) {
+        self.saveData()
+        self.tableView.reloadData()
+    }
     
     func createInitialUserData() {
         let nowTime = NSDate()
@@ -119,9 +123,12 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func loadFromCoreData(){
         print("loading core data")
         //        MOC and fetching data
-        let fetchRequest1 = NSFetchRequest(entityName: "User")
+        
+        let fetchRequest = NSFetchRequest()
+        let fetchRequest1 = NSEntityDescription.entityForName("User", inManagedObjectContext: self.moc)
+        fetchRequest.entity = fetchRequest1
         do {
-            let results = try moc.executeFetchRequest(fetchRequest1)
+            let results = try moc.executeFetchRequest(fetchRequest)
             //            creaturesMOC = results as! [NSManagedObject]
             self.users = results as! [NSMutableArray]
             print("count of users \(self.users.count)")
@@ -171,19 +178,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let desVC = segue.destinationViewController as! MediaViewController
             desVC.user = self.users[0] as? User
             
-<<<<<<< HEAD
-            
-            
-        } else if segue.identifier == "commentButtonSegue" {
-            let desVC = segue.destinationViewController as! CommentVC
-//            desVC.image = sender as! Image
-            desVC.image = self.imageCell
-//            let userN = self.imageCell.user?.profileName
-//            print("\(userN)")
-            
-            
-            
-=======
         } else if segue.identifier == "commentSegue" {
             // Atousa:: Convert from UIButton to IndexPath
             let pointInTable: CGPoint = sender!.convertPoint(sender!.bounds.origin, toView: self.tableView)
@@ -193,7 +187,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             // Atousa:: Pick the image at IndexPath.row
             let desVC = segue.destinationViewController as! CommentVC
             desVC.image = self.images[row] as? Image            
->>>>>>> origin/master
         } else if segue.identifier == "profileSegue" {
             print("profile segue underway")
            let desVC = segue.destinationViewController as! EditProfileViewController
@@ -222,9 +215,14 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
     
+<<<<<<< HEAD
     func didSharedImage() {
         //LOAD FORM CORE DATA
-        
+        print("returned from ShareVC")
+=======
+    func didSharedImage(moc:NSManagedObjectContext) {
+        self.moc = moc
+>>>>>>> fixshareVC2
         self.saveData()
         self.loadFromCoreData()
         self.tableView.reloadData()

@@ -123,9 +123,12 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func loadFromCoreData(){
         print("loading core data")
         //        MOC and fetching data
-        let fetchRequest1 = NSFetchRequest(entityName: "User")
+        
+        let fetchRequest = NSFetchRequest()
+        let fetchRequest1 = NSEntityDescription.entityForName("User", inManagedObjectContext: self.moc)
+        fetchRequest.entity = fetchRequest1
         do {
-            let results = try moc.executeFetchRequest(fetchRequest1)
+            let results = try moc.executeFetchRequest(fetchRequest)
             //            creaturesMOC = results as! [NSManagedObject]
             self.users = results as! [NSMutableArray]
             print("count of users \(self.users.count)")
@@ -212,9 +215,8 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     
     
-    func didSharedImage() {
-        //LOAD FORM CORE DATA
-        print("returned from ShareVC")
+    func didSharedImage(moc:NSManagedObjectContext) {
+        self.moc = moc
         self.saveData()
         self.loadFromCoreData()
         self.tableView.reloadData()

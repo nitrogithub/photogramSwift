@@ -222,20 +222,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }

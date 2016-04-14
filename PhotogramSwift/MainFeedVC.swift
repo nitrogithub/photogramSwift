@@ -14,6 +14,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var testObject1 = TestObject()
     var testObject2 = TestObject()
     var testObject3 = TestObject()
+    var imageCell : Image!
     var moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
     
     var users = []
@@ -170,9 +171,16 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let desVC = segue.destinationViewController as! MediaViewController
             desVC.user = self.users[0] as! User
             
-        } else if segue.identifier == "commentSegue" {
+            
+            
+        } else if segue.identifier == "commentButtonSegue" {
             let desVC = segue.destinationViewController as! CommentVC
-            desVC.image = sender as! Image
+//            desVC.image = sender as! Image
+            desVC.image = self.imageCell
+//            let userN = self.imageCell.user?.profileName
+//            print("\(userN)")
+            
+            
             
         } else if segue.identifier == "profileSegue" {
             print("profile segue underway")
@@ -182,9 +190,16 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    
     @IBAction func profileButtonTapped(sender: UIBarButtonItem) {
         self.performSegueWithIdentifier("profileSegue", sender: self.users[0] as! User)
+    }
+    
+    func commentButtonSegue(sender: Image)  {
+        print("\(sender.user?.profileName)")
+        self.imageCell = sender
+//        self.performSegueWithIdentifier("commentSeg", sender: self.imageCell)
+//        self.performSegueWithIdentifier("profileSegue", sender: nil)
+
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

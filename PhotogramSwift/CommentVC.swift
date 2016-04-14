@@ -14,7 +14,8 @@ class CommentVC: UIViewController,UITableViewDelegate,UITableViewDataSource,UITe
     @IBOutlet weak var myTableView: UITableView!
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var spacerBottomConstraint: NSLayoutConstraint!
-    var image = Image()
+//    var image = Image() --> This is incorrect
+    var image : Image!
     
     // currently save the comment into an array, needs to be save in core data
     var comment = [String]()

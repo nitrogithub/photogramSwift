@@ -53,7 +53,7 @@
                                                             <state key="normal" title="Button" image="chatIcon"/>
                                                             <connections>
                                                                 <action selector="commentButtonPressed:" destination="SlR-wi-wpj" eventType="touchUpInside" id="6e3-ch-nVV"/>
-                                                                <segue destination="RXG-Rn-Ola" kind="push" id="FM8-VR-qAz"/>
+                                                                <segue destination="RXG-Rn-Ola" kind="push" identifier="commentButtonSegue" id="u2r-P5-DRm"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -208,6 +208,8 @@
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
                         <segue destination="fIy-fm-DFV" kind="push" identifier="profileSegue" id="jlR-Vx-2px"/>
+                        <segue destination="RXG-Rn-Ola" kind="push" identifier="asdf" id="9GI-cm-5L0"/>
+                        <segue destination="RXG-Rn-Ola" kind="push" identifier="commentSeg" id="hMn-gX-myS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -386,4 +388,7 @@
         <image name="squareImage1" width="225" height="225"/>
         <image name="userProfile" width="30" height="30"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="u2r-P5-DRm"/>
+    </inferredMetricsTieBreakers>
 </document>

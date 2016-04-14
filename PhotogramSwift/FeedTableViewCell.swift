@@ -83,7 +83,11 @@ class FeedTableViewCell: UITableViewCell {
 
     }
     @IBAction func commentButtonPressed(sender: UIButton) {
-        let descVC = MainFeedVC()
+        print("commentButtonPressed")
+        let desVC = MainFeedVC()
+        desVC.imageCell = imageCell
+//        desVC.commentButtonSegue(self.imageCell!)
+
         
         //commented out because this isn't working. temporary measure in place
 //        descVC.performSegueWithIdentifier("commentSegue", sender: imageCell)

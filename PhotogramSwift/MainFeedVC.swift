@@ -171,9 +171,14 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             desVC.user = self.users[0] as! User
             
         } else if segue.identifier == "commentSegue" {
+            // Atousa:: Convert from UIButton to IndexPath
+            let pointInTable: CGPoint = sender!.convertPoint(sender!.bounds.origin, toView: self.tableView)
+            let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
+            let row = cellIndexPath!.row
+
+            // Atousa:: Pick the image at IndexPath.row
             let desVC = segue.destinationViewController as! CommentVC
-            desVC.image = sender as! Image
-            
+            desVC.image = self.images[row] as? Image            
         } else if segue.identifier == "profileSegue" {
             print("profile segue underway")
            let desVC = segue.destinationViewController as! EditProfileViewController

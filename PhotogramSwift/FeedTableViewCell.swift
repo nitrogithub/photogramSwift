@@ -82,13 +82,13 @@ class FeedTableViewCell: UITableViewCell {
     @IBAction func likeButtonPressed(sender: UIButton) {
 
     }
-    @IBAction func commentButtonPressed(sender: UIButton) {
-        let descVC = MainFeedVC()
-        
-        //commented out because this isn't working. temporary measure in place
+
+// Atousa:: removed commentButtonPressed() as segue triggered by storyboard
+//    @IBAction func commentButtonPressed(sender: UIButton) {
+//        let descVC = MainFeedVC()
+//
+//        //commented out because this isn't working. temporary measure in place
 //        descVC.performSegueWithIdentifier("commentSegue", sender: imageCell)
-
-
-    }
+//    }
     
 }

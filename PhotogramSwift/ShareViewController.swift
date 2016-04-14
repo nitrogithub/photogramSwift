@@ -22,9 +22,6 @@ protocol ShareViewControllerDelegate: class {
 class ShareViewController: UIViewController {
     //Image that passed from other VC
     var recievedImage = UIImage()
-    
-    
-//    var user = User() -> Atousa this one is wrong. this is initializing which we do not want
     var user : User!
     
     
@@ -71,7 +68,7 @@ class ShareViewController: UIViewController {
     }
     
         
-        // Kevin, When you want to call this methos you need to use this convention in swift :
+        // Kevin, When you want to call this method you need to use this convention in swift :
     //extension MasterViewController:  ShareViewControllerDelegate{
         //func didSharedImage(sender: Image) {
             // do stuff like saving the image

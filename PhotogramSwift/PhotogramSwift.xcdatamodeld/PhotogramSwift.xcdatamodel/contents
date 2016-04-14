@@ -14,7 +14,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="timeStamp" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="image" inverseEntity="User" syncable="YES"/>
-        <relationship name="userComment" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Comment" inverseName="image" inverseEntity="Comment" syncable="YES"/>
+        <relationship name="userComment" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Comment" inverseName="image" inverseEntity="Comment" syncable="YES"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
         <attribute name="gender" optional="YES" attributeType="String" syncable="YES"/>
@@ -26,7 +26,7 @@
     </entity>
     <elements>
         <element name="Comment" positionX="-396" positionY="-280" width="128" height="103"/>
-        <element name="Image" positionX="-407" positionY="-643" width="128" height="163"/>
+        <element name="Image" positionX="-407" positionY="-643" width="128" height="165"/>
         <element name="User" positionX="-729" positionY="-514" width="128" height="133"/>
     </elements>
 </model>

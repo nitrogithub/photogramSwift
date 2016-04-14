@@ -135,52 +135,23 @@
                                     <segue destination="nGs-eE-DqY" kind="unwind" unwindAction="unwindToMenu:" id="fAB-RX-Y9x"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUN-1y-rlh">
-                                <rect key="frame" x="20" y="204" width="560" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="2x0-GI-HeS"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Name" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="j8R-2n-he7">
-                                <rect key="frame" x="20" y="269" width="560" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="Jc1-8N-XRd"/>
-                                    <constraint firstAttribute="height" constant="45" id="phx-L2-PcV"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Jc1-8N-XRd"/>
-                                    </mask>
-                                </variation>
-                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xBH-ZF-DL4" firstAttribute="leading" secondItem="Fp5-Cg-S30" secondAttribute="trailing" constant="20" id="6sV-uW-M1s"/>
                             <constraint firstItem="Fp5-Cg-S30" firstAttribute="top" secondItem="XYH-nD-QHc" secondAttribute="bottom" constant="20" id="Edw-Iz-FnH"/>
-                            <constraint firstItem="j8R-2n-he7" firstAttribute="leading" secondItem="XP6-HM-8Ch" secondAttribute="leadingMargin" id="O7s-m3-Rhe"/>
                             <constraint firstItem="xBH-ZF-DL4" firstAttribute="top" secondItem="Fp5-Cg-S30" secondAttribute="top" id="XH8-gR-IuD"/>
                             <constraint firstItem="xBH-ZF-DL4" firstAttribute="trailing" secondItem="XP6-HM-8Ch" secondAttribute="trailingMargin" id="Xvz-jC-2IX"/>
-                            <constraint firstItem="hUN-1y-rlh" firstAttribute="top" secondItem="Fp5-Cg-S30" secondAttribute="bottom" constant="20" id="aHD-B2-3cA"/>
-                            <constraint firstItem="hUN-1y-rlh" firstAttribute="trailing" secondItem="XP6-HM-8Ch" secondAttribute="trailingMargin" id="dA1-hP-4th"/>
                             <constraint firstItem="Fp5-Cg-S30" firstAttribute="leading" secondItem="XP6-HM-8Ch" secondAttribute="leadingMargin" id="fZf-ej-MOI"/>
                             <constraint firstItem="3I3-Mu-BLt" firstAttribute="leading" secondItem="XP6-HM-8Ch" secondAttribute="leadingMargin" id="fhc-Gf-z1V"/>
-                            <constraint firstItem="j8R-2n-he7" firstAttribute="trailing" secondItem="XP6-HM-8Ch" secondAttribute="trailingMargin" id="hKo-GW-XlZ"/>
-                            <constraint firstItem="hUN-1y-rlh" firstAttribute="leading" secondItem="XP6-HM-8Ch" secondAttribute="leadingMargin" id="iIc-v2-ZpI"/>
                             <constraint firstItem="FIA-XH-BR7" firstAttribute="top" secondItem="3I3-Mu-BLt" secondAttribute="bottom" constant="10" id="rUD-Fa-Ezr"/>
                             <constraint firstItem="3I3-Mu-BLt" firstAttribute="trailing" secondItem="XP6-HM-8Ch" secondAttribute="trailingMargin" id="sCP-2P-oex"/>
-                            <constraint firstItem="j8R-2n-he7" firstAttribute="top" secondItem="hUN-1y-rlh" secondAttribute="bottom" constant="20" id="za5-ul-Dmf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="imageToShare" destination="Fp5-Cg-S30" id="nv3-8d-jry"/>
-                        <outlet property="locationOfImage" destination="hUN-1y-rlh" id="L3R-gr-VeB"/>
-                        <outlet property="nameOfImage" destination="j8R-2n-he7" id="kHM-ai-jXy"/>
-                        <outlet property="shareButton" destination="3I3-Mu-BLt" id="DDO-Bs-gwO"/>
+                        <outlet property="shareButton" destination="3I3-Mu-BLt" id="hxc-iz-cnO"/>
+                        <outlet property="userComment" destination="xBH-ZF-DL4" id="lWr-h1-LMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vuz-j7-1Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>

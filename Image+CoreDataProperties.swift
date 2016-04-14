@@ -2,7 +2,7 @@
 //  Image+CoreDataProperties.swift
 //  PhotogramSwift
 //
-//  Created by Atousa Duprat on 4/12/16.
+//  Created by Atousa Duprat on 4/13/16.
 //  Copyright © 2016 Kevin Kim. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -21,6 +21,6 @@ extension Image {
     @NSManaged var name: String?
     @NSManaged var timeStamp: NSDate?
     @NSManaged var user: User?
-    @NSManaged var userComment: NSSet?
+    @NSManaged var userComment: NSOrderedSet?
 
 }

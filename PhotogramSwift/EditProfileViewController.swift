@@ -11,6 +11,7 @@ import Photos
 import CoreData
 import MobileCoreServices
 
+
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     //@IBOutlet weak var editButton: UIButton!
@@ -221,20 +222,6 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     }
     
 
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
 }

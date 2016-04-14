@@ -169,19 +169,17 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "cameraSegue" {
             let desVC = segue.destinationViewController as! MediaViewController
-            desVC.user = self.users[0] as! User
+            desVC.user = self.users[0] as? User
             
-            
-            
-        } else if segue.identifier == "commentButtonSegue" {
+        } else if segue.identifier == "commentSegue" {
+            // Atousa:: Convert from UIButton to IndexPath
+            let pointInTable: CGPoint = sender!.convertPoint(sender!.bounds.origin, toView: self.tableView)
+            let cellIndexPath = self.tableView.indexPathForRowAtPoint(pointInTable)
+            let row = cellIndexPath!.row
+
+            // Atousa:: Pick the image at IndexPath.row
             let desVC = segue.destinationViewController as! CommentVC
-//            desVC.image = sender as! Image
-            desVC.image = self.imageCell
-//            let userN = self.imageCell.user?.profileName
-//            print("\(userN)")
-            
-            
-            
+            desVC.image = self.images[row] as? Image            
         } else if segue.identifier == "profileSegue" {
             print("profile segue underway")
            let desVC = segue.destinationViewController as! EditProfileViewController
@@ -205,6 +203,9 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.images.count
     }
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+
     
     
     func didSharedImage() {

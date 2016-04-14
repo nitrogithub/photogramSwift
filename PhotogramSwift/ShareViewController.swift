@@ -22,6 +22,12 @@ protocol ShareViewControllerDelegate: class {
 class ShareViewController: UIViewController {
     //Image that passed from other VC
     var recievedImage = UIImage()
+
+
+    
+    
+//    var user = User() -> Atousa this one is wrong. this is initializing which we do not want
+
     var user : User!
     
     
@@ -45,6 +51,8 @@ class ShareViewController: UIViewController {
         shareImage.name = self.nameOfImage.text
         shareImage.image = UIImagePNGRepresentation(recievedImage)
         shareImage.user = user
+        
+        print ("123")
         
         
         //taking the geotech from the received image

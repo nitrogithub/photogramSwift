@@ -168,7 +168,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "cameraSegue" {
             let desVC = segue.destinationViewController as! MediaViewController
-            desVC.user = self.users[0] as! User
+            desVC.user = self.users[0] as? User
             
         } else if segue.identifier == "commentSegue" {
             // Atousa:: Convert from UIButton to IndexPath

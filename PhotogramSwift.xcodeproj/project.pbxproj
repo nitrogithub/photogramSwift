@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1944EFF01CBC860400868E77 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1944EFEF1CBC860400868E77 /* ShareViewController.swift */; };
 		1944EFF21CBC867700868E77 /* MediaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1944EFF11CBC867700868E77 /* MediaViewController.swift */; };
 		1944EFF41CBC8D2900868E77 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1944EFF31CBC8D2900868E77 /* EditProfileViewController.swift */; };
 		1960718C1CBF37B400172742 /* SharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1960718B1CBF37B400172742 /* SharingViewController.swift */; };
@@ -34,7 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1944EFEF1CBC860400868E77 /* ShareViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		1944EFF11CBC867700868E77 /* MediaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaViewController.swift; sourceTree = "<group>"; };
 		1944EFF31CBC8D2900868E77 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		1960718B1CBF37B400172742 /* SharingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharingViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				7C2E879C1CB710380056FF31 /* Atousa.storyboard */,
-				1944EFEF1CBC860400868E77 /* ShareViewController.swift */,
 			);
 			name = AtousaFiles;
 			sourceTree = "<group>";
@@ -233,7 +230,6 @@
 				1944EFF21CBC867700868E77 /* MediaViewController.swift in Sources */,
 				1960718C1CBF37B400172742 /* SharingViewController.swift in Sources */,
 				7C2E87961CB70B620056FF31 /* MainFeedVC.swift in Sources */,
-				1944EFF01CBC860400868E77 /* ShareViewController.swift in Sources */,
 				719E9EE61CBD5EA000533175 /* Image+CoreDataProperties.swift in Sources */,
 				7C2E87811CB7032F0056FF31 /* AppDelegate.swift in Sources */,
 				719E9EE41CBD5EA000533175 /* Comment+CoreDataProperties.swift in Sources */,

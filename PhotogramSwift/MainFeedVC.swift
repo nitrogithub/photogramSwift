@@ -196,6 +196,9 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return self.images.count
     }
     
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+
+    
     
     func didSharedImage() {
         //LOAD FORM CORE DATA

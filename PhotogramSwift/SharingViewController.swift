@@ -11,6 +11,11 @@ import Photos
 import MapKit
 import CoreData
 
+protocol ShareViewControllerDelegate: class {
+    func didSharedImage()
+}
+
+
 class SharingViewController: UIViewController {
 
     var user : User?

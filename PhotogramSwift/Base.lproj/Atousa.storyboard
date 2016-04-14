@@ -53,7 +53,7 @@
                         <barButtonItem title="Share" id="EoN-Dl-Qjd">
                             <connections>
                                 <action selector="onPressedShareButton:" destination="isG-tG-nbm" id="jLA-Yt-UrN"/>
-                                <segue destination="7S6-99-6dz" kind="show" id="gRh-T9-RSs"/>
+                                <segue destination="4E2-Mg-Mdu" kind="unwind" unwindAction="unwindToMenu:" id="L0l-1r-5xm"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -67,6 +67,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Irf-Yw-asi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="4E2-Mg-Mdu" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3375" y="1747"/>
         </scene>
@@ -81,7 +82,6 @@
         <!--Navigation Controller-->
         <scene sceneID="TwY-HK-Qkn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="t1T-6F-P5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uhx-b1-ALO" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="o79-pp-Res">
@@ -93,6 +93,7 @@
                         <segue destination="isG-tG-nbm" kind="relationship" relationship="rootViewController" id="fXw-d6-ddx"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t1T-6F-P5n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2563" y="1747"/>
         </scene>

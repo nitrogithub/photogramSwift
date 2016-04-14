@@ -95,7 +95,6 @@
         <!--Sharing View Controller-->
         <scene sceneID="bnr-a7-fMy">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vuz-j7-1Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="NnM-FU-wf7" customClass="SharingViewController" customModule="PhotogramSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="XYH-nD-QHc"/>
@@ -133,6 +132,7 @@
                                 </state>
                                 <connections>
                                     <action selector="onPressedShareButton:" destination="NnM-FU-wf7" eventType="touchUpInside" id="P4Y-k3-vlt"/>
+                                    <segue destination="nGs-eE-DqY" kind="unwind" unwindAction="unwindToMenu:" id="fAB-RX-Y9x"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Location" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hUN-1y-rlh">
@@ -183,6 +183,8 @@
                         <outlet property="shareButton" destination="3I3-Mu-BLt" id="DDO-Bs-gwO"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vuz-j7-1Jl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="nGs-eE-DqY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3513" y="1927"/>
         </scene>

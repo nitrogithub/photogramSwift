@@ -53,7 +53,7 @@
                                                             <state key="normal" title="Button" image="chatIcon"/>
                                                             <connections>
                                                                 <action selector="commentButtonPressed:" destination="SlR-wi-wpj" eventType="touchUpInside" id="6e3-ch-nVV"/>
-                                                                <segue destination="RXG-Rn-Ola" kind="push" id="cfG-l3-ibE"/>
+                                                                <segue destination="RXG-Rn-Ola" kind="push" id="FM8-VR-qAz"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -183,7 +183,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="w6J-pi-zZL"/>
                                     <barButtonItem image="userProfile" id="KMo-TY-3HV">
                                         <connections>
-                                            <segue destination="fIy-fm-DFV" kind="push" identifier="profile" id="CxI-l7-nav"/>
+                                            <action selector="profileButtonTapped:" destination="BYZ-38-t0r" id="au3-Vh-DT9"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
@@ -207,6 +207,7 @@
                         <outlet property="homeButton" destination="1Yz-gH-se3" id="EKu-sQ-9kh"/>
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
+                        <segue destination="fIy-fm-DFV" kind="push" identifier="profileSegue" id="jlR-Vx-2px"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -227,32 +228,62 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Kz-P3-EkC" userLabel="spacer">
                                 <rect key="frame" x="16" y="516" width="288" height="8"/>
-                                <color key="backgroundColor" red="0.75294117650000003" green="0.90980392160000001" blue="0.97647058819999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="8" id="65o-dO-SrV"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-kX-D0S" userLabel="commentTextField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oyk-kX-D0S" userLabel="commentTextField">
                                 <rect key="frame" x="16" y="486" width="234" height="30"/>
-                                <color key="backgroundColor" red="0.66283908489999999" green="1" blue="0.61307424359999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="4So-a2-aLR"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="RXG-Rn-Ola" id="uGD-mi-HUZ"/>
+                                </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-lK-X3O" userLabel="sendButton">
-                                <rect key="frame" x="258" y="486" width="46" height="30"/>
-                                <color key="backgroundColor" red="0.97647058819999999" green="0.49590355470000003" blue="0.37950296610000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="4qo-qN-Sph"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OBu-8s-rSk" userLabel="tableView">
                                 <rect key="frame" x="16" y="64" width="288" height="414"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="commentCell" textLabel="nDH-St-Jgr" imageView="QEa-oB-dPQ" style="IBUITableViewCellStyleDefault" id="RUD-OT-aHz">
+                                        <rect key="frame" x="0.0" y="28" width="288" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RUD-OT-aHz" id="lhp-Bh-2HW">
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nDH-St-Jgr">
+                                                    <rect key="frame" x="73" y="0.0" width="200" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="ProfilePicDefault" id="QEa-oB-dPQ">
+                                                    <rect key="frame" x="15" y="0.0" width="43" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RXG-Rn-Ola" id="PbF-yW-hoT"/>
+                                    <outlet property="delegate" destination="RXG-Rn-Ola" id="0eP-9C-aYK"/>
+                                </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFG-lK-X3O" userLabel="sendButton">
+                                <rect key="frame" x="258" y="486" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="4qo-qN-Sph"/>
+                                </constraints>
+                                <state key="normal" title="Send"/>
+                                <connections>
+                                    <action selector="onPressedSendButton:" destination="RXG-Rn-Ola" eventType="touchUpInside" id="a58-Xl-Col"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -272,6 +303,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="6BR-zL-ja8"/>
                     <connections>
+                        <outlet property="commentTextField" destination="Oyk-kX-D0S" id="DYH-wK-5lP"/>
+                        <outlet property="myTableView" destination="OBu-8s-rSk" id="eqL-Ov-kAl"/>
                         <outlet property="spacerBottomConstraint" destination="CJg-NO-Gpc" id="0O9-4F-AJV"/>
                     </connections>
                 </viewController>
@@ -345,6 +378,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ProfilePicDefault" width="512" height="512"/>
         <image name="camera" width="30" height="30"/>
         <image name="chatIcon" width="128" height="101"/>
         <image name="heartWhite" width="128" height="128"/>

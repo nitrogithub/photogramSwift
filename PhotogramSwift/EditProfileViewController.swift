@@ -11,6 +11,7 @@ import Photos
 import CoreData
 import MobileCoreServices
 
+
 class EditProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
     //@IBOutlet weak var editButton: UIButton!
@@ -18,8 +19,9 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userGender: UISegmentedControl!
+    @IBOutlet weak var saveButton: UIButton!
+    var user : User!
 
-    
     //Variables
     var newMedia: Bool?
     var genderType: String = ""

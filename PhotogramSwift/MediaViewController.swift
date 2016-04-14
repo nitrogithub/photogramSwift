@@ -17,7 +17,7 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
     @IBOutlet weak var mediaBar: UISegmentedControl!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nextButton: UIButton!
-    var user = User()
+    var user : User?
 
     
     //Variables
@@ -28,7 +28,6 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.blackColor()
-        nextButton.layer.cornerRadius = 0.05 * nextButton.bounds.size.width
         
         // Navigation Bar UI
         navigationController!.navigationBar.barTintColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
@@ -43,7 +42,18 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
         imageView.layer.borderColor = UIColor.whiteColor().CGColor
         imageView.layer.cornerRadius = 10.0
         
-        print(user.realName, user.gender, user.profileName, user.image)
+        // Next Button
+        nextButton.backgroundColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+        nextButton.layer.cornerRadius = 0.01 * nextButton.bounds.size.width
+
+        
+        
+        if let user = self.user {
+            
+            print(user.realName, user.gender, user.profileName)
+        }
+        
+        
 
     }
     
@@ -164,16 +174,24 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     
     
-    // Segue - passing image to sharing screen
+     //Segue - passing image to sharing screen
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let dVC = segue.destinationViewController as! ShareViewController
-        dVC.imageToShare = imageView
+        if segue.identifier == "ShareVC"
+        {
+            let dvc = segue.destinationViewController as! SharingViewController
+            dvc.user = self.user
+            dvc.recievedImage = imageView.image!
+            
+        }
     }
     
     
     // Perform Segue on NEXT button pressed
-    @IBAction func onNextButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("GoToShareScreenVC", sender: self)
+    @IBAction func onNextButtonPressed(sender: AnyObject)
+    {
+        performSegueWithIdentifier("ShareVC", sender: self)
         
     }
+    
+    
 }

@@ -23,8 +23,19 @@ class FeedTableViewCell: UITableViewCell {
         didSet {
             self.usernameLabel.text = self.imageCell?.user?.profileName
             self.mainImageView.image = UIImage(data: (self.imageCell?.image)!)
+            
+            let tempString = NSMutableString()
+            for c in imageCell!.userComment! {
+                let d = c as! Comment
+//                tempString.appendString("\(d.user!.profileName!)- \(d.comment!) \n")
+                tempString.appendString("KDawg- \(d.comment!) \n")
+
+            }
+            self.commentsTextView.text = tempString as String
         }
     }
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

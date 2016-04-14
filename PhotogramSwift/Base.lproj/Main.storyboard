@@ -84,7 +84,6 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.02789057168" green="1" blue="0.22645802549999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="8vo-rQ-8gH" firstAttribute="top" secondItem="OJ2-Io-1UG" secondAttribute="top" constant="8" id="1ar-ke-obm"/>
                                                         <constraint firstAttribute="bottom" secondItem="8vo-rQ-8gH" secondAttribute="bottom" constant="8" id="L1l-ts-O5W"/>

@@ -65,6 +65,10 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     
+    override func viewWillAppear(animated: Bool) {
+        self.saveData()
+        self.tableView.reloadData()
+    }
     
     func createInitialUserData() {
         let nowTime = NSDate()

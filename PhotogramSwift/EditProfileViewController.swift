@@ -20,20 +20,41 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var userName: UITextField!
     @IBOutlet weak var userGender: UISegmentedControl!
     @IBOutlet weak var saveButton: UIButton!
-    var user : User!
-
+    var user : User?
+    var moc : NSManagedObjectContext?
+    
     //Variables
     var newMedia: Bool?
     var genderType: String = ""
     
     
-    var moc : NSManagedObjectContext!
-    var newUser: User!
+    override func viewWillAppear(animated: Bool) {
+        if genderType == "Male" {
+            userGender.selectedSegmentIndex = 0
+        }else{
+            userGender.selectedSegmentIndex = 1
+        }
+    }
     
-
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        // if user exists...
+        if let usr = self.user {
+            
+            // pull attribues from user
+            userName.text = usr.realName
+            genderType = usr.gender!
+        }
+    
+        if (user!.userProfileImage != nil) {
+            profileImage.image = UIImage(data: user!.userProfileImage!)
+        } else{
+            profileImage.image = UIImage(named: "ProfilePicDefault")
+        }
+        
         
         // UI stuff
         self.view.backgroundColor = UIColor.blackColor()
@@ -51,8 +72,7 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
         
         userName.resignFirstResponder()
     }
-    
-    
+
     
     func textFieldShouldReturn(userText: UITextField!) -> Bool {
         userName.resignFirstResponder()
@@ -76,19 +96,27 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             let tap = UITapGestureRecognizer(target: self, action: #selector(EditProfileViewController.imageTapped(_:)))
             profileImage.addGestureRecognizer(tap)
             
-            // CoreData
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            let moc: NSManagedObjectContext = appDelegate.managedObjectContext
             
-            newUser = NSEntityDescription.insertNewObjectForEntityForName("User", inManagedObjectContext: moc) as! User
-            
-            newUser.realName = userName.text
-            
+
+
         }else {
             self.navigationItem.rightBarButtonItem!.title = "Edit"
             profileImage.userInteractionEnabled = false
             userName.userInteractionEnabled = false
             userGender.userInteractionEnabled = false
+            
+            // CoreData
+          
+            user?.realName = userName.text
+            user?.gender = genderType
+            
+            let imageData = UIImagePNGRepresentation (profileImage.image! )! as NSData
+            user?.userProfileImage = imageData
+            
+            // moc delegate
+            let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+            self.moc = appDelegate?.managedObjectContext
+            self.saveData()
             
         
         }
@@ -207,6 +235,8 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
     
     // Gender Selection
     @IBAction func genderSelection(sender: AnyObject) {
+       
+        
         switch userGender.selectedSegmentIndex
         {
         case 0:
@@ -219,6 +249,19 @@ class EditProfileViewController: UIViewController, UIImagePickerControllerDelega
             break;
         }
         
+    }
+    
+    
+    
+    // Saving to MOC
+    func saveData() {
+        print("saving data")
+        do {
+            try moc!.save()
+            print("saveData: Saving MOC")
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
     }
     
 

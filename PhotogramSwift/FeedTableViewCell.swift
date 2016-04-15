@@ -57,10 +57,10 @@ class FeedTableViewCell: UITableViewCell {
         
         likeButton.imageView?.image = UIImage (named: "heartWhite")
         
-//        // add a pan recognizer
-//        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(FeedTableViewCell.handlePan(_:)))
-//        recognizer.delegate = self
-//        addGestureRecognizer(recognizer)
+        // add a double tap recognizer
+        let tap = UITapGestureRecognizer(target: self, action: "doubleTapped")
+        tap.numberOfTapsRequired = 2
+        mainImageView.addGestureRecognizer(tap)
         
 //        let frameCell = CGRectMake(0, 0, 150+self.frame.width, self.frame.width)
 //        let view4 = UIView.init(frame: frameCell)
@@ -124,6 +124,17 @@ class FeedTableViewCell: UITableViewCell {
             likeButton.setImage(image, forState: UIControlState.Normal)
         }
 
+    }
+    
+    func doubleTapped(){
+        if likeButton.imageView?.image == UIImage (named: "heartWhite"){
+            let image = UIImage(named: "heartRed")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }else{
+            let image = UIImage(named: "heartWhite")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }
+        
     }
 
 // Atousa:: removed commentButtonPressed() as segue triggered by storyboard

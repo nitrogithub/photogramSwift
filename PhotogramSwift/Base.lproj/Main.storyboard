@@ -67,7 +67,7 @@
                                                         <constraint firstAttribute="height" constant="30" id="wjc-fU-Gvp"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareImage1" translatesAutoresizingMaskIntoConstraints="NO" id="59G-AS-CwS">
+                                                <imageView multipleTouchEnabled="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squareImage1" translatesAutoresizingMaskIntoConstraints="NO" id="59G-AS-CwS">
                                                     <rect key="frame" x="0.0" y="58" width="320" height="200"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="59G-AS-CwS" secondAttribute="height" multiplier="8:5" id="hI9-yE-6K9"/>

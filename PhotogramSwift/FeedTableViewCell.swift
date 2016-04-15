@@ -29,9 +29,13 @@ class FeedTableViewCell: UITableViewCell {
                 let d = c as! Comment
 //                tempString.appendString("\(d.user!.profileName!)- \(d.comment!) \n")
                 tempString.appendString("KDawg- \(d.comment!) \n")
-
             }
             self.commentsTextView.text = tempString as String
+            if let image = imageCell?.user?.userProfileImage {
+//                self.profileImage.image = UIImage(data: imageCell!.user!.userProfileImage!)
+                self.profileImage.image = UIImage(data:image)
+            }
+            self.usernameLabel.text = imageCell?.user?.profileName
         }
     }
     

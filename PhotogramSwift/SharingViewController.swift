@@ -12,29 +12,22 @@ import MapKit
 import CoreData
 
 
-protocol ShareViewControllerDelegate: class {
-    func didSharedImage(moc:NSManagedObjectContext)
-}
-
-
 class SharingViewController: UIViewController {
 
     var user : User?
     var recievedImage = UIImage()
 
-    //set up the delegate property
-    weak var delegate:ShareViewControllerDelegate?
     //outlets
     //@IBOutlet weak var nameOfImage: UITextField!
     @IBOutlet weak var imageToShare: UIImageView!
     //@IBOutlet weak var locationOfImage: UITextField!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var userComment: UITextField!
-    let vc = MainFeedVC()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // UI stuff
         self.view.backgroundColor = UIColor.blackColor()
         
@@ -50,7 +43,6 @@ class SharingViewController: UIViewController {
     
     
     @IBAction func onPressedShareButton(sender: AnyObject) {
-        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let moc = appDelegate.managedObjectContext
 
@@ -58,14 +50,14 @@ class SharingViewController: UIViewController {
         
         shareImage.user = user
         shareImage.image = UIImagePNGRepresentation(recievedImage)! as NSData
-            
-        let comment = NSEntityDescription.insertNewObjectForEntityForName("Comment", inManagedObjectContext: moc) as! Comment
+        shareImage.comment = self.userComment.text
         
-        comment.comment = self.userComment.text
-        print(comment.comment)
-        print(shareImage.user)
-        comment.image = shareImage
-        vc.didSharedImage(moc)
+        do {
+            try moc.save()
+        } catch let error as NSError {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+
     }
     
     

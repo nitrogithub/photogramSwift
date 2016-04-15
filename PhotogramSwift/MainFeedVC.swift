@@ -38,13 +38,8 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.createInitialUserData()
             self.saveData()
             self.loadFromCoreData()
-            
-            self.createInitialImageData()
-            self.saveData()
-            self.loadFromCoreData()
         }
         
-        self.tableView.reloadData()
         
         for u in self.users {
             let user = u as! User
@@ -63,7 +58,11 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     }
     
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        loadFromCoreData()
+        self.tableView.reloadData()
+    }
     
     func createInitialUserData() {
         let nowTime = NSDate()
@@ -160,6 +159,7 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedTableViewCell
         cell.imageCell = self.images[indexPath.row] as? Image
+        cell.commentsTextView.text = cell.imageCell?.comment
         return cell
     }
 
@@ -202,12 +202,4 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 
     
-    
-    func didSharedImage(moc:NSManagedObjectContext) {
-        self.moc = moc
-        self.saveData()
-        self.loadFromCoreData()
-        self.tableView.reloadData()
-        
-    }
 }

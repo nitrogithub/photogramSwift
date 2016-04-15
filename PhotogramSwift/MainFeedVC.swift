@@ -66,6 +66,8 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     override func viewWillAppear(animated: Bool) {
+        
+        
         self.saveData()
         self.tableView.reloadData()
     }
@@ -219,6 +221,30 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.moc = moc
         self.saveData()
         self.loadFromCoreData()
+
+        var abc: NSData?
+        
+        for i in self.images {
+            let d = i as! Image
+            print("\(d.user?.profileName)")
+            
+            if let variable = abc {
+                print("not Nil")
+            } else {
+                print("nothing. it is nil")
+            }
+            
+            
+//            print("\(d.image)")
+
+        }
+        
+        
+    
+        
+        
+        
+        
         self.tableView.reloadData()
         
     }

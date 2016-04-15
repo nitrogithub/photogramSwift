@@ -51,9 +51,10 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.createInitialImageData()
             self.saveData()
             self.loadFromCoreData()
+
+            self.tableView.reloadData()
         }
         
-        self.tableView.reloadData()
         
         for u in self.users {
             let user = u as! User
@@ -114,25 +115,19 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
  
         let image1 = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: self.moc) as! Image
         image1.image = UIImagePNGRepresentation(UIImage.init(named: "yosemite")!)
-        let tempUser1 = self.users[0] as! User
-        print("\(tempUser1.profileName)")
-        image1.user = tempUser1
-        print("\(image1.user?.profileName)")
+        image1.user = self.users[0] as? User
+        image1.comment = "ADawg\'s best photo!"
         
         let image2 = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: self.moc) as! Image
-        image2.image = UIImagePNGRepresentation(UIImage.init(named: "squareImage1")!)
-        let tempUser2 = self.users[1] as! User
-        print("\(tempUser2.profileName)")
-        image2.user = tempUser2
-        print("\(image2.user?.profileName)")
-        
+        image2.image = UIImagePNGRepresentation(UIImage.init(named: "squareImage4")!)
+        image2.user = self.users[1] as? User
+        image2.comment = "DDawg\'s first photo"
+
         let image3 = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: self.moc) as! Image
         image3.image = UIImagePNGRepresentation(UIImage.init(named: "squareImage2")!)
-        let tempUser3 = self.users[2] as! User
-        print("\(tempUser3.profileName)")
-        image3.user = tempUser3
-        print("\(image3.user?.profileName)")
-    }
+        image3.user = self.users[2] as? User
+        image3.comment = "KDawg\'s newest photo!"
+}
     
     
     func loadFromCoreData(){

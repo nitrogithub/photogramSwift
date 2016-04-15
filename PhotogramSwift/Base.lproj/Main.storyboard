@@ -153,6 +153,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="commentsTextView" destination="8vo-rQ-8gH" id="W8I-7Y-mXQ"/>
+                                            <outlet property="likeButton" destination="pdr-Xq-P0i" id="jS7-7F-ch3"/>
                                             <outlet property="mainImageView" destination="59G-AS-CwS" id="8jc-dO-rjy"/>
                                             <outlet property="profileImage" destination="gmV-DC-etX" id="jb7-8L-wqk"/>
                                             <outlet property="timeUploadedLabel" destination="ttX-Ce-BGY" id="Uxm-tv-MBg"/>

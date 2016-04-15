@@ -19,6 +19,7 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timeUploadedLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var commentsTextView: UITextView!
     
@@ -53,6 +54,8 @@ class FeedTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        likeButton.imageView?.image = UIImage (named: "heartWhite")
         
 //        // add a pan recognizer
 //        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(FeedTableViewCell.handlePan(_:)))
@@ -110,6 +113,16 @@ class FeedTableViewCell: UITableViewCell {
     }
 
     @IBAction func likeButtonPressed(sender: UIButton) {
+        //let image = UIImage(named: "heartRed")! as UIImage
+        //likeButton.setImage(image, forState: UIControlState.Normal)
+        
+        if likeButton.imageView?.image == UIImage (named: "heartWhite"){
+            let image = UIImage(named: "heartRed")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }else{
+            let image = UIImage(named: "heartWhite")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }
 
     }
 

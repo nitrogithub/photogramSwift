@@ -56,20 +56,20 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         }
         
         
-        for u in self.users {
-            let user = u as! User
-            print("\(user.realName)")
-            print("\(user.profileName)")
-            print("\(user.gender)")
-
-        }
-        
-        for i in self.images {
-            let image = i as! Image
-            print("\(image.user?.profileName)")
-//            print("\(image.image)")
-            print("\(image.user?.realName)")
-        }
+//        for u in self.users {
+//            let user = u as! User
+//            print("\(user.realName)")
+//            print("\(user.profileName)")
+//            print("\(user.gender)")
+//
+//        }
+//        
+//        for i in self.images {
+//            let image = i as! Image
+//            print("\(image.user?.profileName)")
+////            print("\(image.image)")
+//            print("\(image.user?.realName)")
+//        }
         
         
         // tapRecognizer, placed in viewDidLoad
@@ -247,11 +247,10 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let image = images[indexPath.row] as! Image
             moc.deleteObject(image)
             self.saveData()
-            
-            tableView.reloadData()
+            self.loadFromCoreData()
+            self.tableView.reloadData()
         }
     }
-    
     
     
     //Called, when long press occurred

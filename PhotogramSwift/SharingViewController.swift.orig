@@ -12,22 +12,39 @@ import MapKit
 import CoreData
 
 
+protocol ShareViewControllerDelegate: class {
+    func didSharedImage(moc:NSManagedObjectContext)
+}
+
+
 class SharingViewController: UIViewController {
 
     var user : User?
     var recievedImage = UIImage()
 
+    //set up the delegate property
+<<<<<<< HEAD
+//    weak var delegate:ShareViewControllerDelegate? --> Atousa: This is the wrong way to send a delegate
+
+    
+=======
+    weak var delegate:ShareViewControllerDelegate?
+>>>>>>> fixshareVC2
     //outlets
     //@IBOutlet weak var nameOfImage: UITextField!
     @IBOutlet weak var imageToShare: UIImageView!
     //@IBOutlet weak var locationOfImage: UITextField!
     @IBOutlet weak var shareButton: UIButton!
+<<<<<<< HEAD
+    var moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+=======
     @IBOutlet weak var userComment: UITextField!
+    let vc = MainFeedVC()
     
+>>>>>>> fixshareVC2
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // UI stuff
         self.view.backgroundColor = UIColor.blackColor()
         
@@ -39,10 +56,37 @@ class SharingViewController: UIViewController {
         // Share Button 
         shareButton.backgroundColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
         shareButton.layer.cornerRadius = 0.01 * shareButton.bounds.size.width
+<<<<<<< HEAD
+
+        
+        // moc delegate
+        let appDelegate = UIApplication.sharedApplication().delegate as? AppDelegate
+        let moc = appDelegate?.managedObjectContext
+        let shareImage = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: moc!) as! Image
+        
+        // Reciving the image
+        imageToShare.image = recievedImage
+        
+        shareImage.name = self.nameOfImage.text
+        shareImage.image = UIImagePNGRepresentation(recievedImage)
+        print("\(shareImage.name)")
+//        print("\(shareImage.image)")
+=======
+>>>>>>> fixshareVC2
     }
     
     
     @IBAction func onPressedShareButton(sender: AnyObject) {
+<<<<<<< HEAD
+   
+
+
+        let descVC = MainFeedVC()
+        descVC.didSharedImage()
+//        delegate?.didSharedImage() --> Atousa this is the wrong way to call a delegate
+
+=======
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         let moc = appDelegate.managedObjectContext
 
@@ -50,14 +94,15 @@ class SharingViewController: UIViewController {
         
         shareImage.user = user
         shareImage.image = UIImagePNGRepresentation(recievedImage)! as NSData
-        shareImage.comment = self.userComment.text
+            
+        let comment = NSEntityDescription.insertNewObjectForEntityForName("Comment", inManagedObjectContext: moc) as! Comment
         
-        do {
-            try moc.save()
-        } catch let error as NSError {
-            print("Could not save \(error), \(error.userInfo)")
-        }
-
+        comment.comment = self.userComment.text
+        print(comment.comment)
+        print(shareImage.user)
+        comment.image = shareImage
+        vc.didSharedImage(moc)
+>>>>>>> fixshareVC2
     }
     
     

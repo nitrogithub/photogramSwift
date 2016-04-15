@@ -19,8 +19,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var users = []
     var images = []
-    //var delegate: TableViewCellDelegate?
-    //var toDoItem: ToDoItem?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var homeButton: UIBarButtonItem!
@@ -28,12 +26,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Navigation Bar UI
-        navigationController!.navigationBar.barTintColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
-        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        tableView.backgroundColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
-        
         
         //setting up MOC
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -51,37 +43,29 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.createInitialImageData()
             self.saveData()
             self.loadFromCoreData()
-
-            self.tableView.reloadData()
         }
         
+        self.tableView.reloadData()
         
-//        for u in self.users {
-//            let user = u as! User
-//            print("\(user.realName)")
-//            print("\(user.profileName)")
-//            print("\(user.gender)")
-//
-//        }
-//        
-//        for i in self.images {
-//            let image = i as! Image
-//            print("\(image.user?.profileName)")
-////            print("\(image.image)")
-//            print("\(image.user?.realName)")
-//        }
+        for u in self.users {
+            let user = u as! User
+            print("\(user.realName)")
+            print("\(user.profileName)")
+            print("\(user.gender)")
+
+        }
         
-        
-        // tapRecognizer, placed in viewDidLoad
-//        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MainFeedVC.longPress(_:)))
-//        self.view.addGestureRecognizer(longPressRecognizer)
+        for i in self.images {
+            let image = i as! Image
+            print("\(image.user?.profileName)")
+//            print("\(image.image)")
+            print("\(image.user?.realName)")
+        }
 
     }
     
     
     override func viewWillAppear(animated: Bool) {
-        
-        
         self.saveData()
         self.tableView.reloadData()
     }
@@ -115,19 +99,25 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
  
         let image1 = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: self.moc) as! Image
         image1.image = UIImagePNGRepresentation(UIImage.init(named: "yosemite")!)
-        image1.user = self.users[0] as? User
-        image1.comment = "ADawg\'s best photo!"
+        let tempUser1 = self.users[0] as! User
+        print("\(tempUser1.profileName)")
+        image1.user = tempUser1
+        print("\(image1.user?.profileName)")
         
         let image2 = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: self.moc) as! Image
-        image2.image = UIImagePNGRepresentation(UIImage.init(named: "squareImage4")!)
-        image2.user = self.users[1] as? User
-        image2.comment = "DDawg\'s first photo"
-
+        image2.image = UIImagePNGRepresentation(UIImage.init(named: "squareImage1")!)
+        let tempUser2 = self.users[1] as! User
+        print("\(tempUser2.profileName)")
+        image2.user = tempUser2
+        print("\(image2.user?.profileName)")
+        
         let image3 = NSEntityDescription.insertNewObjectForEntityForName("Image", inManagedObjectContext: self.moc) as! Image
         image3.image = UIImagePNGRepresentation(UIImage.init(named: "squareImage2")!)
-        image3.user = self.users[2] as? User
-        image3.comment = "KDawg\'s newest photo!"
-}
+        let tempUser3 = self.users[2] as! User
+        print("\(tempUser3.profileName)")
+        image3.user = tempUser3
+        print("\(image3.user?.profileName)")
+    }
     
     
     func loadFromCoreData(){
@@ -175,9 +165,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedTableViewCell
         cell.imageCell = self.images[indexPath.row] as? Image
-        //cell.selectionStyle = .None
-        //cell.delegate = self
-        //cell.toDoItem = item
         return cell
     }
 
@@ -226,84 +213,18 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 
-
     
     
-    
-    // David delete image cells
-    
-    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if (editingStyle == UITableViewCellEditingStyle.Delete) {
-            
-            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-            self.moc = appDelegate.managedObjectContext
-            
-            //print (indexPath.row)
-            
-            let image = images[indexPath.row] as! Image
-            moc.deleteObject(image)
-            self.saveData()
-            self.loadFromCoreData()
-            self.tableView.reloadData()
-        }
-    }
-    
-    
-    //Called, when long press occurred
-//    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
-//        
-//        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
-//            
-//            let touchPoint = longPressGestureRecognizer.locationInView(self.view)
-//            if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
-//                
-//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-//                self.moc = appDelegate.managedObjectContext
-//                
-//                // need to extract index "i" from "indexPath"
-//                
-//                print (indexPath.row)
-//
-//                let image = images[indexPath.row] as! Image
-//                moc.deleteObject(image)
-//                self.saveData()
-//                
-//                //Image.delete(indexPath)
-//                //self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-//                tableView.reloadData()
-//                // your code here, get the row for the indexPath or do whatever you want
-//            }
-//        }
-//    }
-    
-    
-        
+<<<<<<< HEAD
+    func didSharedImage() {
+        //LOAD FORM CORE DATA
+        print("returned from ShareVC")
+=======
     func didSharedImage(moc:NSManagedObjectContext) {
         self.moc = moc
+>>>>>>> fixshareVC2
         self.saveData()
         self.loadFromCoreData()
-
-        var abc: NSData?
-        
-        for i in self.images {
-            let d = i as! Image
-            print("\(d.user?.profileName)")
-            
-            if let variable = abc {
-                print("not Nil")
-            } else {
-                print("nothing. it is nil")
-            }
-            
-            
-//            print("\(d.image)")
-
-        }
-        
         self.tableView.reloadData()
         
     }

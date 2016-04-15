@@ -8,14 +8,27 @@
 
 import UIKit
 
+
+//protocol TableViewCellDelegate {
+//    func toDeleteImage(item: Image)
+//}
+
+
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var timeUploadedLabel: UILabel!
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var commentsTextView: UITextView!
     
+//    var originalCenter = CGPoint()
+//    var completeOnDragRelease = false
+//    var deleteOnDragRelease = false
+//    var delegate: TableViewCellDelegate?
+//    var image: Image?
+//    
     
     
     //1. What needs to be done before this is fired?
@@ -23,11 +36,35 @@ class FeedTableViewCell: UITableViewCell {
         didSet {
             self.usernameLabel.text = self.imageCell?.user?.profileName
             self.mainImageView.image = UIImage(data: (self.imageCell?.image)!)
+            
+            let tempString = NSMutableString()
+            for c in imageCell!.userComment! {
+                let d = c as! Comment
+//                tempString.appendString("\(d.user!.profileName!)- \(d.comment!) \n")
+                tempString.appendString("KDawg- \(d.comment!) \n")
+            }
+            self.commentsTextView.text = tempString as String
+            if let image = imageCell?.user?.userProfileImage {
+//                self.profileImage.image = UIImage(data: imageCell!.user!.userProfileImage!)
+                self.profileImage.image = UIImage(data:image)
+            }
+            self.usernameLabel.text = imageCell?.user?.profileName
         }
     }
     
+    
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        likeButton.imageView?.image = UIImage (named: "heartWhite")
+        
+        // add a double tap recognizer
+        let tap = UITapGestureRecognizer(target: self, action: "doubleTapped")
+        tap.numberOfTapsRequired = 2
+        mainImageView.addGestureRecognizer(tap)
         
 //        let frameCell = CGRectMake(0, 0, 150+self.frame.width, self.frame.width)
 //        let view4 = UIView.init(frame: frameCell)
@@ -80,7 +117,28 @@ class FeedTableViewCell: UITableViewCell {
     }
 
     @IBAction func likeButtonPressed(sender: UIButton) {
+        //let image = UIImage(named: "heartRed")! as UIImage
+        //likeButton.setImage(image, forState: UIControlState.Normal)
+        
+        if likeButton.imageView?.image == UIImage (named: "heartWhite"){
+            let image = UIImage(named: "heartRed")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }else{
+            let image = UIImage(named: "heartWhite")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }
 
+    }
+    
+    func doubleTapped(){
+        if likeButton.imageView?.image == UIImage (named: "heartWhite"){
+            let image = UIImage(named: "heartRed")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }else{
+            let image = UIImage(named: "heartWhite")! as UIImage
+            likeButton.setImage(image, forState: UIControlState.Normal)
+        }
+        
     }
 
 // Atousa:: removed commentButtonPressed() as segue triggered by storyboard
@@ -91,4 +149,50 @@ class FeedTableViewCell: UITableViewCell {
 //        descVC.performSegueWithIdentifier("commentSegue", sender: imageCell)
 //    }
     
+
+
+
+//    //MARK: - horizontal pan gesture methods
+//    func handlePan(recognizer: UIPanGestureRecognizer) {
+//        // 1
+//        if recognizer.state == .Began {
+//            // when the gesture begins, record the current center location
+//            originalCenter = center
+//        }
+//        // 2
+//        if recognizer.state == .Changed {
+//            let translation = recognizer.translationInView(self)
+//            center = CGPointMake(originalCenter.x + translation.x, originalCenter.y)
+//            // has the user dragged the item far enough to initiate a delete/complete?
+//            deleteOnDragRelease = frame.origin.x < frame.size.width / 5.0
+//        }
+//        // 3
+//        if recognizer.state == .Ended {
+//            // the frame this cell had before user dragged it
+//            let originalFrame = CGRect(x: 0, y: frame.origin.y,
+//                                       width: bounds.size.width, height: bounds.size.height)
+//            if !deleteOnDragRelease {
+//                // if the item is not being deleted, snap back to the original location
+//                UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
+//            }
+//        }
+//        
+//    }
+//    
+//    
+//    
+//    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+//            let translation = panGestureRecognizer.translationInView(superview!)
+//            if fabs(translation.x) > fabs(translation.y) {
+//                return true
+//            }
+//            return false
+//        }
+//        return false
+//    }
+//    
+    
+    
 }
+

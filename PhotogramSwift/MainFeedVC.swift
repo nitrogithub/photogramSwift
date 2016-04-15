@@ -19,6 +19,8 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var users = []
     var images = []
+    //var delegate: TableViewCellDelegate?
+    //var toDoItem: ToDoItem?
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var homeButton: UIBarButtonItem!
@@ -26,6 +28,12 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Navigation Bar UI
+        navigationController!.navigationBar.barTintColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+        navigationController!.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        tableView.backgroundColor = UIColor.init(colorLiteralRed: 59/255, green: 89/255, blue: 152/255, alpha: 1.0)
+        
         
         //setting up MOC
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -61,6 +69,11 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //            print("\(image.image)")
             print("\(image.user?.realName)")
         }
+        
+        
+        // tapRecognizer, placed in viewDidLoad
+//        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(MainFeedVC.longPress(_:)))
+//        self.view.addGestureRecognizer(longPressRecognizer)
 
     }
     
@@ -167,6 +180,9 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("feedCell", forIndexPath: indexPath) as! FeedTableViewCell
         cell.imageCell = self.images[indexPath.row] as? Image
+        //cell.selectionStyle = .None
+        //cell.delegate = self
+        //cell.toDoItem = item
         return cell
     }
 
@@ -215,8 +231,63 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 
+
     
     
+    
+    // David delete image cells
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.Delete) {
+            
+            let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+            self.moc = appDelegate.managedObjectContext
+            
+            //print (indexPath.row)
+            
+            let image = images[indexPath.row] as! Image
+            moc.deleteObject(image)
+            self.saveData()
+            
+            tableView.reloadData()
+        }
+    }
+    
+    
+    
+    //Called, when long press occurred
+//    func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer) {
+//        
+//        if longPressGestureRecognizer.state == UIGestureRecognizerState.Began {
+//            
+//            let touchPoint = longPressGestureRecognizer.locationInView(self.view)
+//            if let indexPath = tableView.indexPathForRowAtPoint(touchPoint) {
+//                
+//                let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+//                self.moc = appDelegate.managedObjectContext
+//                
+//                // need to extract index "i" from "indexPath"
+//                
+//                print (indexPath.row)
+//
+//                let image = images[indexPath.row] as! Image
+//                moc.deleteObject(image)
+//                self.saveData()
+//                
+//                //Image.delete(indexPath)
+//                //self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+//                tableView.reloadData()
+//                // your code here, get the row for the indexPath or do whatever you want
+//            }
+//        }
+//    }
+    
+    
+        
     func didSharedImage(moc:NSManagedObjectContext) {
         self.moc = moc
         self.saveData()
@@ -238,12 +309,6 @@ class MainFeedVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //            print("\(d.image)")
 
         }
-        
-        
-    
-        
-        
-        
         
         self.tableView.reloadData()
         

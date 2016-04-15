@@ -8,6 +8,12 @@
 
 import UIKit
 
+
+//protocol TableViewCellDelegate {
+//    func toDeleteImage(item: Image)
+//}
+
+
 class FeedTableViewCell: UITableViewCell {
 
     @IBOutlet weak var profileImage: UIImageView!
@@ -16,6 +22,12 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var mainImageView: UIImageView!
     @IBOutlet weak var commentsTextView: UITextView!
     
+//    var originalCenter = CGPoint()
+//    var completeOnDragRelease = false
+//    var deleteOnDragRelease = false
+//    var delegate: TableViewCellDelegate?
+//    var image: Image?
+//    
     
     
     //1. What needs to be done before this is fired?
@@ -37,8 +49,15 @@ class FeedTableViewCell: UITableViewCell {
     
     
     
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+//        // add a pan recognizer
+//        let recognizer = UIPanGestureRecognizer(target: self, action: #selector(FeedTableViewCell.handlePan(_:)))
+//        recognizer.delegate = self
+//        addGestureRecognizer(recognizer)
         
 //        let frameCell = CGRectMake(0, 0, 150+self.frame.width, self.frame.width)
 //        let view4 = UIView.init(frame: frameCell)
@@ -102,4 +121,50 @@ class FeedTableViewCell: UITableViewCell {
 //        descVC.performSegueWithIdentifier("commentSegue", sender: imageCell)
 //    }
     
+
+
+
+//    //MARK: - horizontal pan gesture methods
+//    func handlePan(recognizer: UIPanGestureRecognizer) {
+//        // 1
+//        if recognizer.state == .Began {
+//            // when the gesture begins, record the current center location
+//            originalCenter = center
+//        }
+//        // 2
+//        if recognizer.state == .Changed {
+//            let translation = recognizer.translationInView(self)
+//            center = CGPointMake(originalCenter.x + translation.x, originalCenter.y)
+//            // has the user dragged the item far enough to initiate a delete/complete?
+//            deleteOnDragRelease = frame.origin.x < frame.size.width / 5.0
+//        }
+//        // 3
+//        if recognizer.state == .Ended {
+//            // the frame this cell had before user dragged it
+//            let originalFrame = CGRect(x: 0, y: frame.origin.y,
+//                                       width: bounds.size.width, height: bounds.size.height)
+//            if !deleteOnDragRelease {
+//                // if the item is not being deleted, snap back to the original location
+//                UIView.animateWithDuration(0.2, animations: {self.frame = originalFrame})
+//            }
+//        }
+//        
+//    }
+//    
+//    
+//    
+//    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        if let panGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer {
+//            let translation = panGestureRecognizer.translationInView(superview!)
+//            if fabs(translation.x) > fabs(translation.y) {
+//                return true
+//            }
+//            return false
+//        }
+//        return false
+//    }
+//    
+    
+    
 }
+

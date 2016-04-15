@@ -181,6 +181,7 @@ class MediaViewController: UIViewController, UIImagePickerControllerDelegate, UI
             let dvc = segue.destinationViewController as! SharingViewController
             dvc.user = self.user
             dvc.recievedImage = imageView.image!
+            print ("I'm passing this user to sharing screen\(self.user)")
             
         }
     }

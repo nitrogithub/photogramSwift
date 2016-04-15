@@ -22,5 +22,8 @@ extension Image {
     @NSManaged var timeStamp: NSDate?
     @NSManaged var user: User?
     @NSManaged var userComment: NSOrderedSet?
+    
+    
+    
 
 }

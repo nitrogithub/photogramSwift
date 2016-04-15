@@ -52,7 +52,8 @@
                                                             </constraints>
                                                             <state key="normal" title="Button" image="chatIcon"/>
                                                             <connections>
-                                                                <segue destination="RXG-Rn-Ola" kind="push" identifier="commentSegue" id="FM8-VR-qAz"/>
+                                                                <action selector="commentButtonPressed:" destination="SlR-wi-wpj" eventType="touchUpInside" id="6e3-ch-nVV"/>
+                                                                <segue destination="RXG-Rn-Ola" kind="push" id="FM8-VR-qAz"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -84,6 +85,7 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                     </subviews>
+                                                    <color key="backgroundColor" red="0.02789057168" green="1" blue="0.22645802549999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="8vo-rQ-8gH" firstAttribute="top" secondItem="OJ2-Io-1UG" secondAttribute="top" constant="8" id="1ar-ke-obm"/>
                                                         <constraint firstAttribute="bottom" secondItem="8vo-rQ-8gH" secondAttribute="bottom" constant="8" id="L1l-ts-O5W"/>
@@ -206,8 +208,6 @@
                         <outlet property="profileButton" destination="KMo-TY-3HV" id="ovr-wg-4hF"/>
                         <outlet property="tableView" destination="6rS-io-PTg" id="lfA-zf-s2l"/>
                         <segue destination="fIy-fm-DFV" kind="push" identifier="profileSegue" id="jlR-Vx-2px"/>
-                        <segue destination="RXG-Rn-Ola" kind="push" identifier="asdf" id="9GI-cm-5L0"/>
-                        <segue destination="RXG-Rn-Ola" kind="push" identifier="commentSeg" id="hMn-gX-myS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -386,7 +386,4 @@
         <image name="squareImage1" width="225" height="225"/>
         <image name="userProfile" width="30" height="30"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="hMn-gX-myS"/>
-    </inferredMetricsTieBreakers>
 </document>
